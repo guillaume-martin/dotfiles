@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# add anaconda path
+export PATH="/home/guillaume/anaconda3/bin:$PATH"
+
+# add logstash path
+export PATH="$PATH:/usr/share/logstash/bin"
+
+# add redis server and client paths
+export PATH="$PATH:/opt/redis/src/redis-server"
+export PATH="$PATH:/opt/redis/src/redis-cli"
