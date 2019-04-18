@@ -108,13 +108,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -f ~/.bash_prompt ], then
+if [ -f .bash_prompt ]; then
     . ~/.bash_prompt
 fi
-
-if [ -f ~/.path ]; then
-    . ~/.path
-fi
-
-
-
