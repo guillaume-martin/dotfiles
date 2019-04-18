@@ -1,5 +1,9 @@
 
 alias la='ls -alh'
+alias ll='ls -lh'
+
+alias bashrc='source /home/guillaume/.bashrc'
+alias back='cd -'
 
 # function to rollback apt-get upgrades
 # from https://unix.stackexchange.com/questions/79050/can-i-rollback-an-apt-get-upgrade-if-something-goes-wrong
