@@ -1,8 +1,9 @@
 
+alias bashrc='source $HOME/.bashrc'
+
 alias la='ls -alh'
 alias ll='ls -lh'
 
-alias bashrc='source /home/guillaume/.bashrc'
 alias back='cd -'
 
 # function to rollback apt-get upgrades

@@ -27,17 +27,21 @@ Plugin 'majutsushi/tagbar'                  " Class/module browser
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'ctrlpvim/ctrlp.vim'                 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plugin 'severin-lemaignan/vim-minimap'      " add minimap
+Plugin 'jlanzarotta/bufexplorer'            " Easily switch between buffers
+
+"-------------=== Themes ===--------------
+Plugin 'flazz/vim-colorschemes'             " Colorschemes
+Plugin 'jordwalke/flatlandia'
+Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
 
 "-------------------=== Other ===-------------
-Plugin 'vim-airline/vim-airline'            " Status bar
-Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-Plugin 'flazz/vim-colorschemes'             " Colorschemes
+"Plugin 'vim-airline/vim-airline'            " Status bar
+Plugin 'bling/vim-airline'                   " Status bar
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'terryma/vim-multiple-cursors'       " multiple cursors
+Plugin 'terryma/vim-multiple-cursors'       " Sublime Text style multiple selections
 
 "-------------------=== Filetypes support ===-------------
 Plugin 'chrisbra/csv.vim'                   " support for csv files
-"Plugin 'ashisha/image.vim'                  " view images in vim
 
 "-------------------=== Language support ===-------------
 Plugin 'Valloric/YouCompleteMe'             " Autocomplete plugin
@@ -68,7 +72,7 @@ syntax enable
 "let g:solarized_termcolors=256
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme flatlandia
 set t_Co=256
 
 set number
@@ -82,6 +86,7 @@ set textwidth=79
 set smarttab                                " set tabs for a shifttabs logic
 set expandtab                               " expand tabs into spaces
 set autoindent                              " indent when moving to the next line while writing code
+set formatoptions-=tc                       " prevent vim from automatically spliting long lines
 set fileformat=unix
 
 set cursorline                              " shows line under the cursor's line
