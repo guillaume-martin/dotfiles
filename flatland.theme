@@ -1,0 +1,9 @@
+[Scheme]
+Name=Flatland
+ColorCursor=#ffb454
+ColorForeground=#f8f8f8
+ColorBackground=#26292c
+TabActivityColor=#8b0809
+ColorPalette=#26292c;#d12a24;#a7d32c;#f1e94b;#204a87;#990099;#009999;#8f9192;#636567;#fa9a4b;#b8d977;#f6f080;#72aaca;#cc00cc;#00cccc;#f8f8f8
+ColorBold=#f8f8f8
+ColorBoldUseDefault=FALSE
