@@ -58,8 +58,8 @@ Plugin 'nvie/vim-flake8'                    " PEP 8 checking
 Plugin 'vim-scripts/indentpython.vim'       " auto-identation
 Plugin 'Yggdroot/indentLine'                " shows identation guides
 Plugin 'tmhedberg/SimpylFold'               " manage folds of methods and classes
-Plugin 'mitsushiko/vim-jinja'               " Jinja support
-
+Plugin 'mitsuhiko/vim-jinja'                " Jinja support
+Plugin 'raimondi/delimitmate'               " automatic closing of quotes, parenthesis, brackets, etc.
 
 "-----------------=== git support ===-----------------
 Plugin 'airblade/vim-gitgutter'             " shows edit signs in gutter
