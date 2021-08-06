@@ -6,6 +6,18 @@ alias ll='ls -lh'
 
 alias back='cd -'
 
+# Update Joplin
+alias update-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash'
+
+# Docker commands
+alias postgres='docker start postgres && docker exec -it postgres /bin/bash'
+alias liquibase='docker run --rm -v $PWD:/liquibase/changelog liquibase/liquibase'
+alias psql='docker run --rm -it postgres:13-alpine psql'
+
+# Python virtual environments
+alias list-venv='ls $HOME/Virtualenv'
+
+
 # function to rollback apt-get upgrades
 # from https://unix.stackexchange.com/questions/79050/can-i-rollback-an-apt-get-upgrade-if-something-goes-wrong
 function apt-history(){
