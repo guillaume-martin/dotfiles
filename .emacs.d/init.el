@@ -14,6 +14,9 @@
 (scroll-bar-mode -1)       ;; Disable visible scrollbar
 (tooltip-mode -1)          ;; Disable tooltips
 (set-fringe-mode 10)       ;; Give some breathing room
+(electric-pair-mode 1)     ;; Auto close bracket insertion
+(show-paren-mode 1)        ;; Turn on highlight matching brackets
+(setq show-paren-style 'parenthesis)  ;; Highlight brackets
 
 (setq visible-bell t)      ;; Set up the visible bell
 
@@ -86,6 +89,11 @@
 				  directory org-agenda-file-regexp))
 			       '("/home/guillaume/Documents/01-PROJECTS/"))))
 
+;; Enable logging
+(setq org-agenda-start-with-log-mode t)
+(setq org-log-done 'time)
+(setq org-log-into-drawer t)
+
 ;; Setup TODO set keywords. There is one set for tasks and one set
 ;; for projects
 (setq org-todo-keywords
@@ -116,6 +124,35 @@
 (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/Documents/01-PROJECTS/_inbox.org")
 	       "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t))))
+
+
+;; Custom agenda view
+(setq org-agenda-custom-commands
+   '(("p" "Projects Master List"
+     ((todo "ACTIVE"
+            ((org-agenda-overriding-header "Active Projects")
+             (org-agenda-files org-agenda-files)))
+      (todo "WAITING"
+            ((org-agenda-overriding-header "Waiting on External")
+             (org-agenda-files org-agenda-files)))
+      (todo "READY"
+            ((org-agenda-overriding-header "Ready for Work")
+             (org-agenda-todo-list-sublevels nil)
+             (org-agenda-files org-agenda-files)))
+      (todo "DEFINITION"
+	    ((org-agenda-overriding-header "Projects Definition")
+	     (org-agenda-files org-agenda-files)))
+      (todo "BACKLOG"
+            ((org-agenda-overriding-header "Project Backlog")
+             (org-agenda-todo-list-sublevels nil)
+             (org-agenda-files org-agenda-files)))
+       (todo "COMPLETED"
+            ((org-agenda-overriding-header "Completed Projects")
+             (org-agenda-files org-agenda-files)))
+      (todo "CANC"
+            ((org-agenda-overriding-header "Cancelled Projects")
+             (org-agenda-files org-agenda-files)))))))
+
 
 ;; =================================
 ;; Development Setup
