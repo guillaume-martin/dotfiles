@@ -1,4 +1,7 @@
+auto-save-list/
 elpa/
 eln-cache/
 eshell/history
 eshell/lastdir
+bookmarks
+url
