@@ -83,15 +83,12 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-;; Insert recursively all the files that are in my project directory
-;; Each project has it's own folder. In each folder, there is an .org
-;; project file containing the actions list
-(setq org-agenda-files (apply 'append
-			      (mapcar
-			       (lambda (directory)
-				 (directory-files-recursively
-				  directory org-agenda-file-regexp))
-			       '("/home/guillaume/Documents/01-PROJECTS/"))))
+;; Load orgfiles
+(defun get-fullpath (@filename)
+  "Returns the full path of 'filename' relative to the caller's file location"
+  (concat (file-name-directory (or load-file-name buffer-file-name)) @filename)
+  )
+(load (get-fullpath "orgfiles.el"))
 
 ;; Enable logging
 (setq org-agenda-start-with-log-mode t)
