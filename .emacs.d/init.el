@@ -80,7 +80,7 @@
 (global-set-key (kbd "<f12>") 'org-agenda)
 
 ;; Use bullets instead of stars for headings
-(require 'org-bullet)
+(require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Insert recursively all the files that are in my project directory
