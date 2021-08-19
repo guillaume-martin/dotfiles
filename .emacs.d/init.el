@@ -114,6 +114,7 @@
 	      ("COMPLETED" :foreground "#b9d977" :weight bold)
 	      ("CANCELLED" :foreground "#b9d977" :weight bold))))
 
+
 ;; Set priority levels
 (setq org-highest-priority ?A)
 (setq org-lowest-priority ?C)
@@ -165,15 +166,15 @@
 	 (agenda "" ((org-agenda-span 1)))
 	 
 	 (tags-todo "+PRIORITY=\"A\"+SCHEDULED=\"<today>\""
-	       ((org-agenda-overriding-header "Today's Priorities")
+	       ((org-agenda-overriding-header "TODAY'S OBJECTIVES")
 		(org-agenda-files org-agenda-files)))
 	 
-	 (tags "+PRIORITY=\"B\"&+SCHEDULED=\"<today>\""
-		    ((org-agenda-overriding-header "Today's Focus")
+	 (tags-todo "+PRIORITY=\"B\"+SCHEDULED=\"<today>\"|+PRIORITY=\"C\"+SCHEDULED=\"<today>\""
+		    ((org-agenda-overriding-header "TODAY'S FOCUS")
 		     (org-agenda-files org-agenda-files)))
-	 
-	 (tags "{+email|+call}+SCHEDULED=\"<today>\""
-		    ((org-agenda-overriding-header "Today's Communications")
+
+	 (tags-todo "+email+SCHEDULED=\"<today>\"|+call+SCHEDULED=\"<today>\""
+		    ((org-agenda-overriding-header "TODAY'S COMMUNICATIONS")
 		     (org-agenda-files org-agenda-files)))
 	 ))
      ))
