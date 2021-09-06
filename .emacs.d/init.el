@@ -6,8 +6,9 @@
 (setq inhibit-startup-message t)
 
 ;; Setup theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'flatland t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;;(load-theme 'flatland t)
+
 
 (tool-bar-mode -1)         ;; Hide the tool bar
 (global-linum-mode t)      ;; Enable line numbers globally
@@ -68,6 +69,8 @@
   :config
   (ivy-mode 1))
 
+(use-package doom-themes
+  :init (load-theme 'doom-palenight t))
 
 
 ;;==================================
@@ -157,7 +160,7 @@
 	 (todo "COMPLETED"
             ((org-agenda-overriding-header "Completed Projects")
              (org-agenda-files org-agenda-files)))
-	 (todo "CANC"
+	 (todo "CANCELLED"
             ((org-agenda-overriding-header "Cancelled Projects")
              (org-agenda-files org-agenda-files)))))
 
@@ -196,7 +199,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (org-bullets use-package ivy doom-modeline))))
+ '(package-selected-packages
+   (quote
+    (doom-themes org-bullets use-package ivy doom-modeline))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
