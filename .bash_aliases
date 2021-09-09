@@ -1,8 +1,8 @@
 
 alias bashrc='source $HOME/.bashrc'
 
-alias la='ls -alh'
-alias ll='ls -lh'
+alias la='ls -alXh'
+alias ll='ls -lXh'
 
 alias back='cd -'
 
