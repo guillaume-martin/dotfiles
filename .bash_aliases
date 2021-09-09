@@ -1,8 +1,8 @@
 
 alias bashrc='source $HOME/.bashrc'
 
-alias la='ls -alXh'
-alias ll='ls -lXh'
+alias la='ls -alh --group-directories-first'
+alias ll='ls -lh --group-directories-first'
 
 alias back='cd -'
 
