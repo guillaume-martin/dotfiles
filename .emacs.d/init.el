@@ -106,17 +106,22 @@
 
 ;; Use the flatland palette colours for the keywords
 (setq org-todo-keyword-faces
-      (quote (("TODO" :background "#c92b14" :weight bold)
-	      ("NEXT" :background "#72aaca" :weight bold)
-	      ("DONE" :foreground "#b9d977" :weight bold)
-	      ("BACKLOG" :foreground "#c92b14" :weight bold)
-	      ("DEFINITION" :foreground "#df9400" :weight bold)
-	      ("READY" :foreground "#c4b14a" :weight bold)
-	      ("ACTIVE" :foreground "#72aaca" :weight bold)
-	      ("WAITING" :foreground "#9877D9" :weight bold)
-	      ("COMPLETED" :foreground "#b9d977" :weight bold)
-	      ("CANCELLED" :foreground "#b9d977" :weight bold))))
+      (quote (("TODO" :background "#ff5370" :weight bold)
+	      ("NEXT" :background "#82aaff" :weight bold)
+	      ("DONE" :foreground "#c3e88d" :weight bold)
+	      ("BACKLOG" :foreground "#ff5370" :weight bold)
+	      ("DEFINITION" :foreground "#f78c6c" :weight bold)
+	      ("READY" :foreground "#ffcb6b" :weight bold)
+	      ("ACTIVE" :background "#82aaff" :weight bold)
+	      ("WAITING" :foreground "#c792ea" :weight bold)
+	      ("COMPLETED" :foreground "#c3e88d" :weight bold)
+	      ("CANCELLED" :foreground "#c3e88d" :weight bold))))
 
+
+;; Tags with fast selection
+(setq org-tag-alist '((:startgroup)
+		      ("personal" . ?p)
+		      ("enspyre" . ?e)))
 
 ;; Set priority levels
 (setq org-highest-priority ?A)
@@ -126,13 +131,13 @@
 
 ;; Setup capture
 (global-set-key (kbd "C-c c") 'org-capture)
-(setq org-default-notes-file "~/Documents/01-PROJECTS/inbox.org")
+(setq org-default-notes-file "~/Documents/01-PROJECTS/org-files/inbox.org")
 
 
 ;; Capture templates
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/Documents/01-PROJECTS/inbox.org" "ACTIONABLES")
-	       "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)))
+      '(("t" "todo" entry (file "~/Documents/01-PROJECTS/inbox.org" "ACTIONABLES")
+	       "* TODO %?\n%U\n%a\n")))
 
 
 ;; Custom agenda view
@@ -199,6 +204,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("/home/guillaume/Documents/01-PROJECTS/org-files/career/aws-saa-cert.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/blog-liquibase.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/gitbook.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/lingoda.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/ubitus.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-db-reset.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-pwd-policy.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-schema-versioning.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/disaster-prep.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/maurren-passport.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/orleans-studio.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/tv-equipt.org" "/home/guillaume/Documents/01-PROJECTS/org-files/finance/organize-finance.org" "/home/guillaume/Documents/01-PROJECTS/org-files/events.org" "/home/guillaume/Documents/01-PROJECTS/org-files/inbox.org" "/home/guillaume/Documents/01-PROJECTS/org-files/routines.org" "/home/guillaume/Documents/01-PROJECTS/org-files/someday.org" "/home/guillaume/Documents/01-PROJECTS/org-files/tickler.org")))
  '(package-selected-packages
    (quote
     (doom-themes org-bullets use-package ivy doom-modeline))))
