@@ -6,8 +6,9 @@
 (setq inhibit-startup-message t)
 
 ;; Setup theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'flatland t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;;(load-theme 'flatland t)
+
 
 (tool-bar-mode -1)         ;; Hide the tool bar
 (global-linum-mode t)      ;; Enable line numbers globally
@@ -68,6 +69,8 @@
   :config
   (ivy-mode 1))
 
+(use-package doom-themes
+  :init (load-theme 'doom-palenight t))
 
 
 ;;==================================
@@ -124,7 +127,7 @@
 
 ;; Setup capture
 (global-set-key (kbd "C-c c") 'org-capture)
-(setq org-default-notes-file "~/Documents/01-PROJECTS/inbox.org")
+(setq org-default-notes-file "~/Documents/01-PROJECTS/org-files/inbox.org")
 
 
 ;; Capture templates
@@ -161,7 +164,7 @@
 	 (todo "COMPLETED"
             ((org-agenda-overriding-header "Completed Projects")
              (org-agenda-files org-agenda-files)))
-	 (todo "CANC"
+	 (todo "CANCELLED"
             ((org-agenda-overriding-header "Cancelled Projects")
              (org-agenda-files org-agenda-files)))))
 
@@ -202,9 +205,10 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/Documents/01-PROJECTS/org-files/enspyre/emos-schema-versioning.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/aws-saa-cert.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/blog-liquibase.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/gitbook.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/lingoda.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/ubitus.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-apps.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-db-reset.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-pwd-policy.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/disaster-prep.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/maurren-passport.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/orleans-studio.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/tv-equipt.org" "/home/guillaume/Documents/01-PROJECTS/org-files/finance/organize-finance.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/ebooks.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/firefox.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/prod-syst.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/renew-arc.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/rss-bot.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/setup-emacs.org" "/home/guillaume/Documents/01-PROJECTS/org-files/events.org" "/home/guillaume/Documents/01-PROJECTS/org-files/inbox.org" "/home/guillaume/Documents/01-PROJECTS/org-files/next-actions.org" "/home/guillaume/Documents/01-PROJECTS/org-files/routines.org" "/home/guillaume/Documents/01-PROJECTS/org-files/someday.org" "/home/guillaume/Documents/01-PROJECTS/org-files/tickler.org")))
- '(org-directory "/mnt/z_drive/Guillaume/01-PROJECTS")
- '(package-selected-packages (quote (org-bullets use-package ivy doom-modeline))))
+    ("/home/guillaume/Documents/01-PROJECTS/org-files/career/aws-saa-cert.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/blog-liquibase.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/gitbook.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/lingoda.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/ubitus.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-db-reset.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-pwd-policy.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-schema-versioning.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/disaster-prep.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/maurren-passport.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/orleans-studio.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/tv-equipt.org" "/home/guillaume/Documents/01-PROJECTS/org-files/finance/organize-finance.org" "/home/guillaume/Documents/01-PROJECTS/org-files/events.org" "/home/guillaume/Documents/01-PROJECTS/org-files/inbox.org" "/home/guillaume/Documents/01-PROJECTS/org-files/routines.org" "/home/guillaume/Documents/01-PROJECTS/org-files/someday.org" "/home/guillaume/Documents/01-PROJECTS/org-files/tickler.org")))
+ '(package-selected-packages
+   (quote
+    (doom-themes org-bullets use-package ivy doom-modeline))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
