@@ -98,13 +98,14 @@
 ;; Setup TODO set keywords. There is one set for tasks and one set
 ;; for projects
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+      (quote ((sequence "TODO(t)" "NEXT(n)" "SCHLD(s)" "|" "DONE(d)")
 	      (sequence "BACKLOG(b)" "DEFINITION(f)" "READY(r)" "ACTIVE(a)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
 
 ;; Use the flatland palette colours for the keywords
 (setq org-todo-keyword-faces
       (quote (("TODO" :background "#c92b14" :weight bold)
 	      ("NEXT" :background "#72aaca" :weight bold)
+	      ("SCHLD" :background "#72aaca" :weight bold)
 	      ("DONE" :foreground "#b9d977" :weight bold)
 	      ("BACKLOG" :foreground "#c92b14" :weight bold)
 	      ("DEFINITION" :foreground "#df9400" :weight bold)
@@ -128,8 +129,11 @@
 
 ;; Capture templates
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/Documents/01-PROJECTS/inbox.org" "ACTIONABLES")
-	       "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)))
+      '(("t" "todo" entry (file+headline "~/Documents/01-PROJECTS/org-files/inbox.org" "ACTIONABLES")
+	 "* TODO %?")
+	("n" "note" entry (file+headline "~/Documents/01-PROJECTS/org-files/inbox.org" "NOTES")
+	 "* %? :note:")
+	("j" "journal" entry (file+datetree "~/Documents/01-PROJECTS/org-files/diary.org"))))
 
 
 ;; Custom agenda view
@@ -196,6 +200,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/Documents/01-PROJECTS/org-files/enspyre/emos-schema-versioning.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/aws-saa-cert.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/blog-liquibase.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/gitbook.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/lingoda.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/ubitus.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-apps.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-db-reset.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-pwd-policy.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/disaster-prep.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/maurren-passport.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/orleans-studio.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/tv-equipt.org" "/home/guillaume/Documents/01-PROJECTS/org-files/finance/organize-finance.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/ebooks.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/firefox.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/prod-syst.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/renew-arc.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/rss-bot.org" "/home/guillaume/Documents/01-PROJECTS/org-files/personal/setup-emacs.org" "/home/guillaume/Documents/01-PROJECTS/org-files/events.org" "/home/guillaume/Documents/01-PROJECTS/org-files/inbox.org" "/home/guillaume/Documents/01-PROJECTS/org-files/next-actions.org" "/home/guillaume/Documents/01-PROJECTS/org-files/routines.org" "/home/guillaume/Documents/01-PROJECTS/org-files/someday.org" "/home/guillaume/Documents/01-PROJECTS/org-files/tickler.org")))
+ '(org-directory "/mnt/z_drive/Guillaume/01-PROJECTS")
  '(package-selected-packages (quote (org-bullets use-package ivy doom-modeline))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
