@@ -101,27 +101,23 @@
 ;; Setup TODO set keywords. There is one set for tasks and one set
 ;; for projects
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+      (quote ((sequence "TODO(t)" "NEXT(n)" "SCHLD(s)" "|" "DONE(d)")
 	      (sequence "BACKLOG(b)" "DEFINITION(f)" "READY(r)" "ACTIVE(a)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
 
 ;; Set colours for the keywords
 (setq org-todo-keyword-faces
-      (quote (("TODO" :background "#ff5370" :weight bold)
-	      ("NEXT" :background "#82aaff" :weight bold)
-	      ("DONE" :foreground "#c3e88d" :weight bold)
-	      ("BACKLOG" :foreground "#ff5370" :weight bold)
-	      ("DEFINITION" :foreground "#f78c6c" :weight bold)
-	      ("READY" :foreground "#ffcb6b" :weight bold)
-	      ("ACTIVE" :background "#82aaff" :weight bold)
-	      ("WAITING" :foreground "#c792ea" :weight bold)
-	      ("COMPLETED" :foreground "#c3e88d" :weight bold)
-	      ("CANCELLED" :foreground "#c3e88d" :weight bold))))
+      (quote (("TODO" :background "#c92b14" :weight bold)
+	      ("NEXT" :background "#72aaca" :weight bold)
+	      ("SCHLD" :background "#72aaca" :weight bold)
+	      ("DONE" :foreground "#b9d977" :weight bold)
+	      ("BACKLOG" :foreground "#c92b14" :weight bold)
+	      ("DEFINITION" :foreground "#df9400" :weight bold)
+	      ("READY" :foreground "#c4b14a" :weight bold)
+	      ("ACTIVE" :foreground "#72aaca" :weight bold)
+	      ("WAITING" :foreground "#9877D9" :weight bold)
+	      ("COMPLETED" :foreground "#b9d977" :weight bold)
+	      ("CANCELLED" :foreground "#b9d977" :weight bold))))
 
-
-;; Tags with fast selection
-(setq org-tag-alist '((:startgroup)
-		      ("personal" . ?p)
-		      ("enspyre" . ?e)))
 
 ;; Set priority levels
 (setq org-highest-priority ?A)
@@ -136,8 +132,11 @@
 
 ;; Capture templates
 (setq org-capture-templates
-      '(("t" "todo" entry (file "~/Documents/01-PROJECTS/inbox.org" "ACTIONABLES")
-	       "* TODO %?\n%U\n%a\n")))
+      '(("t" "todo" entry (file+headline "~/Documents/01-PROJECTS/org-files/inbox.org" "ACTIONABLES")
+	 "* TODO %?")
+	("n" "note" entry (file+headline "~/Documents/01-PROJECTS/org-files/inbox.org" "NOTES")
+	 "* %? :note:")
+	("j" "journal" entry (file+datetree "~/Documents/01-PROJECTS/org-files/diary.org"))))
 
 
 ;; Setup refiling
