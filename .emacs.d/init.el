@@ -104,7 +104,7 @@
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
 	      (sequence "BACKLOG(b)" "DEFINITION(f)" "READY(r)" "ACTIVE(a)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
 
-;; Use the flatland palette colours for the keywords
+;; Set colours for the keywords
 (setq org-todo-keyword-faces
       (quote (("TODO" :background "#ff5370" :weight bold)
 	      ("NEXT" :background "#82aaff" :weight bold)
@@ -140,9 +140,21 @@
 	       "* TODO %?\n%U\n%a\n")))
 
 
+;; Setup refiling
+
+;; Set the target files
+(setq org-refile-targets '((nil :maxlevel .9)
+                          (org-agenda-files :maxlevel .9)))
+
+
+
 ;; Custom agenda view
 (setq org-agenda-custom-commands
-     '(
+      '(
+	("r" "Items to refile"
+	 (tags "inbox")
+	 (org-agenda-files org-agenda-files))
+	
        ("p" "Projects Master List"
 	((todo "ACTIVE"
             ((org-agenda-overriding-header "Active Projects")
