@@ -104,7 +104,7 @@
       (quote ((sequence "TODO(t)" "NEXT(n)" "SCHLD(s)" "|" "DONE(d)")
 	      (sequence "BACKLOG(b)" "DEFINITION(f)" "READY(r)" "ACTIVE(a)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
 
-;; Use the flatland palette colours for the keywords
+;; Set colours for the keywords
 (setq org-todo-keyword-faces
       (quote (("TODO" :background "#c92b14" :weight bold)
 	      ("NEXT" :background "#72aaca" :weight bold)
@@ -139,9 +139,21 @@
 	("j" "journal" entry (file+datetree "~/Documents/01-PROJECTS/org-files/diary.org"))))
 
 
+;; Setup refiling
+
+;; Set the target files
+(setq org-refile-targets '((nil :maxlevel .9)
+                          (org-agenda-files :maxlevel .9)))
+
+
+
 ;; Custom agenda view
 (setq org-agenda-custom-commands
-     '(
+      '(
+	("r" "Items to refile"
+	 (tags "inbox")
+	 (org-agenda-files org-agenda-files))
+	
        ("p" "Projects Master List"
 	((todo "ACTIVE"
             ((org-agenda-overriding-header "Active Projects")
