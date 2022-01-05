@@ -9,6 +9,8 @@ alias back='cd -'
 # Update Joplin
 alias update-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash'
 
+alias 7z='/opt/7z/7zz'
+
 # Docker commands
 alias postgres='docker start postgres && docker exec -it postgres /bin/bash'
 alias liquibase='docker run --rm -v $PWD:/liquibase/changelog liquibase/liquibase'

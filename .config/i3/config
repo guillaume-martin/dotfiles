@@ -39,7 +39,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock screen
-bindsym $mod+Shift+x exec i3lock # -i /home/guillaume/.wallpapers/lock.jpg
+bindsym $mod+Shift+x exec i3lock -i /home/guillaume/.wallpapers/lock.jpg
 
 # Exit menu.
 bindsym $mod+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
@@ -325,8 +325,8 @@ client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
 
 # Set monitors names.
 # Use xrandr to know the name of your monitors.
-set $monitor1 Virtual1
-set $monitor2 Virtual2
+set $monitor1 HDMI-0
+set $monitor2 DVI-0
 
 # Which workspaces appear on which monitor.
 workspace 1 output $monitor1
