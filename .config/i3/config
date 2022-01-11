@@ -250,20 +250,18 @@ for_window [class="Tor Browser"] floating enable
 #==============================================================================#
 
 # Setup in which workspace an application should open by default.
-
+# assign [class="foo"] $ws#
+#
 # Development
-assign [class="VSCodium"] $ws1
-assign [class="jetbrains-pycharm-ce"] $ws1
-assign [class="firefoc-dev"] $ws2
-assign [class="DBeaver"] $ws3
+# assign [class="VSCodium"] $ws1
+# assign [class="DBeaver"] $ws3
 
 # Internet
 # assign [class="firefox"] $ws5
 # assign [class="Tor Browser"] $ws5
 
 # Productivity
-assign [class="firefox-prod"] $ws7
-assign [class="Joplin"] $ws8
+# assign [class="Joplin"] $ws8
 
 
 #==============================================================================#
