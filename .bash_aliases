@@ -14,7 +14,7 @@ alias 7z='/opt/7z/7zz'
 # Docker commands
 alias postgres='docker start postgres && docker exec -it postgres /bin/bash'
 alias liquibase='docker run --rm -v $PWD:/liquibase/changelog liquibase/liquibase'
-alias psql='docker run --rm -it postgres:13-alpine psql'
+alias psql='docker run --rm -it -v $PWD:/tmp postgres:13-alpine psql'
 
 # Python virtual environments
 alias list-venv='ls $HOME/Virtualenv'
