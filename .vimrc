@@ -48,7 +48,8 @@ Plugin 'honza/vim-snippets'                 " snippets repo
 "-------------------=== Filetypes support ===-------------
 Plugin 'chrisbra/csv.vim'                   " support for csv files
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
 
 "-------------------=== Language support ===-------------
 Plugin 'tpope/vim-commentary'               " Comment stuff out
@@ -142,7 +143,7 @@ set hlsearch	                            " highlight search results
 "=====================================================
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
 let NERDTreeWinSize=30
-autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
+autocmd VimEnter * if !argc() | NERDTree | endif            " Load NERDTree only if vim is run without arguments
 nmap " :NERDTreeToggle<CR>
 
 "=====================================================
