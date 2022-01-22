@@ -74,13 +74,19 @@ filetype plugin indent on    " required
 "=========================
 " general settings
 "=========================
+" Stop the snipMate error message
+let g:snipMate = {'snippet_version' : 1 }
+
 syntax enable
 
 set background=dark
-colorscheme predawn
+colorscheme onedark 
 set t_Co=256
 
-set number
+" enable hybrid line numbers
+set number relativenumber
+set nu rnu
+
 set cc=80
 set ruler
 set ttyfast                                 " terminal acceleration
