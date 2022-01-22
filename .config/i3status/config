@@ -29,7 +29,7 @@ order += "tztime utc"
 #==============================================================================#
 
 cpu_usage {
-    format=" %usage {%cpu0 %cpu1 %cpu2 %cpu3}"
+    format=" %usage {%cpu0 %cpu1 %cpu2 %cpu3 %cpu4 %cpu5 %cpu6 %cpu7}"
     degraded_threshold = 25
     max_threshold = 75
 }

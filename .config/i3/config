@@ -71,7 +71,6 @@ bindsym $mod+d exec dmenu_run
 # i3-dmenu-desktop includes applications with a .desktop file. 
 bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop
 
-
 #==============================================================================#
 #                            *** status bar ***                                #
 #==============================================================================#

@@ -34,9 +34,9 @@ Plugin 'ctrlpvim/ctrlp.vim'                 " Full path fuzzy file, buffer, mru,
 "Plugin 'vim-airline/vim-airline'            " Status bar
 Plugin 'bling/vim-airline'                   " Status bar
 Plugin 'vim-airline/vim-airline-themes'      " Themes for airline
-Plugin 'edkolev/tmuxline.vim'
+"Plugin 'edkolev/tmuxline.vim'
 Plugin 'terryma/vim-multiple-cursors'       " Sublime Text style multiple selections
-Plugin 'rosenfeld/conque-term'              " Consoles as buffers
+"Plugin 'rosenfeld/conque-term'              " Consoles as buffers
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML, tags and more
 
 "-------------------=== Snippets support ===--------------------
@@ -48,7 +48,7 @@ Plugin 'honza/vim-snippets'                 " snippets repo
 "-------------------=== Filetypes support ===-------------
 Plugin 'chrisbra/csv.vim'                   " support for csv files
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
 
 "-------------------=== Language support ===-------------
 Plugin 'tpope/vim-commentary'               " Comment stuff out
