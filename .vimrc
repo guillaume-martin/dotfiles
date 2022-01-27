@@ -34,9 +34,9 @@ Plugin 'ctrlpvim/ctrlp.vim'                 " Full path fuzzy file, buffer, mru,
 "Plugin 'vim-airline/vim-airline'            " Status bar
 Plugin 'bling/vim-airline'                   " Status bar
 Plugin 'vim-airline/vim-airline-themes'      " Themes for airline
-Plugin 'edkolev/tmuxline.vim'
+"Plugin 'edkolev/tmuxline.vim'
 Plugin 'terryma/vim-multiple-cursors'       " Sublime Text style multiple selections
-Plugin 'rosenfeld/conque-term'              " Consoles as buffers
+"Plugin 'rosenfeld/conque-term'              " Consoles as buffers
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML, tags and more
 
 "-------------------=== Snippets support ===--------------------
@@ -75,13 +75,19 @@ filetype plugin indent on    " required
 "=========================
 " general settings
 "=========================
+" Stop the snipMate error message
+let g:snipMate = {'snippet_version' : 1 }
+
 syntax enable
 
 set background=dark
-colorscheme predawn
+colorscheme onedark 
 set t_Co=256
 
-set number
+" enable hybrid line numbers
+set number relativenumber
+set nu rnu
+
 set cc=80
 set ruler
 set ttyfast                                 " terminal acceleration

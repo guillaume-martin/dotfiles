@@ -87,11 +87,11 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Load orgfiles
-(defun get-fullpath (@filename)
-  "Returns the full path of 'filename' relative to the caller's file location"
-  (concat (file-name-directory (or load-file-name buffer-file-name)) @filename)
-  )
-(load (get-fullpath "orgfiles.el"))
+;(defun get-fullpath (@filename)
+;  "Returns the full path of 'filename' relative to the caller's file location"
+;  (concat (file-name-directory (or load-file-name buffer-file-name)) @filename)
+;  )
+;(load (get-fullpath "orgfiles.el"))
 
 ;; Enable logging
 (setq org-agenda-start-with-log-mode t)
@@ -101,20 +101,17 @@
 ;; Setup TODO set keywords. There is one set for tasks and one set
 ;; for projects
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "SCHLD(s)" "|" "DONE(d)")
-	      (sequence "BACKLOG(b)" "DEFINITION(f)" "READY(r)" "ACTIVE(a)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
+      (quote ((sequence "TODO(t)" "|" "DONE(d)")
+	      (sequence "BACKLOG(b)" "ACTIVE(a)" "HOLD(h)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
 
 ;; Set colours for the keywords
 (setq org-todo-keyword-faces
       (quote (("TODO" :background "#c92b14" :weight bold)
-	      ("NEXT" :background "#72aaca" :weight bold)
-	      ("SCHLD" :background "#72aaca" :weight bold)
 	      ("DONE" :foreground "#b9d977" :weight bold)
 	      ("BACKLOG" :foreground "#c92b14" :weight bold)
-	      ("DEFINITION" :foreground "#df9400" :weight bold)
-	      ("READY" :foreground "#c4b14a" :weight bold)
 	      ("ACTIVE" :foreground "#72aaca" :weight bold)
 	      ("WAITING" :foreground "#9877D9" :weight bold)
+	      ("ON HOLD" :foreground "#9877D9" :weight bold)
 	      ("COMPLETED" :foreground "#b9d977" :weight bold)
 	      ("CANCELLED" :foreground "#b9d977" :weight bold))))
 
@@ -132,11 +129,11 @@
 
 ;; Capture templates
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/Documents/01-PROJECTS/org-files/inbox.org" "ACTIONABLES")
+      '(("t" "todo" entry (file+headline "~/pCloudDrive/org/inbox.org" "ACTIONABLES")
 	 "* TODO %?")
-	("n" "note" entry (file+headline "~/Documents/01-PROJECTS/org-files/inbox.org" "NOTES")
+	("n" "note" entry (file+headline "~/pCloudDrive/org/inbox.org" "NOTES")
 	 "* %? :note:")
-	("j" "journal" entry (file+datetree "~/Documents/01-PROJECTS/org-files/diary.org"))))
+	("j" "journal" entry (file+datetree "~/pCloudDrive/org/diary.org"))))
 
 
 ;; Setup refiling
@@ -162,15 +159,8 @@
 	 (todo "WAITING"
             ((org-agenda-overriding-header "Waiting on External")
              (org-agenda-files org-agenda-files)))
-	 (todo "READY"
-            ((org-agenda-overriding-header "Ready for Work")
-             (org-agenda-todo-list-sublevels nil)
-             (org-agenda-files org-agenda-files)))
-	 (todo "DEFINITION"
-	    ((org-agenda-overriding-header "Projects Definition")
-	     (org-agenda-files org-agenda-files)))
-	 (todo "BACKLOG"
-            ((org-agenda-overriding-header "Project Backlog")
+	 (todo "ON HOLD"
+            ((org-agenda-overriding-header "On Hold")
              (org-agenda-todo-list-sublevels nil)
              (org-agenda-files org-agenda-files)))
 	 (todo "COMPLETED"
@@ -180,18 +170,21 @@
             ((org-agenda-overriding-header "Cancelled Projects")
              (org-agenda-files org-agenda-files)))))
 
+       ("n" "Next Actions"
+	((todo "TODO"
+	       ((org-agenda-overriding-header "NEXT ACTIONS")
+		(org-agenda-files org-agenda-files)
+		(org-agenda-sorting-strategy '(deadline-up priority-down))))))
+       
        ("d" "Today's dashboard"
 	(
 	 (agenda "" ((org-agenda-span 1)))
 	 
-	 (tags-todo "+PRIORITY=\"A\"+SCHEDULED=\"<today>\""
-	       ((org-agenda-overriding-header "TODAY'S OBJECTIVES")
-		(org-agenda-files org-agenda-files)))
+	 (tags-todo "SCHEDULED=\"<today>\""
+	       ((org-agenda-overriding-header "TODAY'S TASKS")
+		(org-agenda-files org-agenda-files)
+		(org-agenda-sorting-strategy '(deadline-up priority-down))))
 	 
-	 (tags-todo "+PRIORITY=\"B\"+SCHEDULED=\"<today>\"|+PRIORITY=\"C\"+SCHEDULED=\"<today>\""
-		    ((org-agenda-overriding-header "TODAY'S FOCUS")
-		     (org-agenda-files org-agenda-files)))
-
 	 (tags-todo "+email+SCHEDULED=\"<today>\"|+call+SCHEDULED=\"<today>\""
 		    ((org-agenda-overriding-header "TODAY'S COMMUNICATIONS")
 		     (org-agenda-files org-agenda-files)))
@@ -215,9 +208,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   (quote
-    ("/home/guillaume/Documents/01-PROJECTS/org-files/career/aws-saa-cert.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/blog-liquibase.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/gitbook.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/lingoda.org" "/home/guillaume/Documents/01-PROJECTS/org-files/career/ubitus.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-db-reset.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-pwd-policy.org" "/home/guillaume/Documents/01-PROJECTS/org-files/enspyre/emos-schema-versioning.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/disaster-prep.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/maurren-passport.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/orleans-studio.org" "/home/guillaume/Documents/01-PROJECTS/org-files/family/tv-equipt.org" "/home/guillaume/Documents/01-PROJECTS/org-files/finance/organize-finance.org" "/home/guillaume/Documents/01-PROJECTS/org-files/events.org" "/home/guillaume/Documents/01-PROJECTS/org-files/inbox.org" "/home/guillaume/Documents/01-PROJECTS/org-files/routines.org" "/home/guillaume/Documents/01-PROJECTS/org-files/someday.org" "/home/guillaume/Documents/01-PROJECTS/org-files/tickler.org")))
+ '(org-directory "~/pCloudDrive/org")
+ '(org-agenda-files (list org-directory))
  '(package-selected-packages
    (quote
     (doom-themes org-bullets use-package ivy doom-modeline))))
