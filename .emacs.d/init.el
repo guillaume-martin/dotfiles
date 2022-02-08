@@ -104,17 +104,6 @@
       (quote ((sequence "TODO(t)" "|" "DONE(d)")
 	      (sequence "BACKLOG(b)" "ACTIVE(a)" "HOLD(h)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
 
-;; Set colours for the keywords
-(setq org-todo-keyword-faces
-      (quote (("TODO" :background "#c92b14" :weight bold)
-	      ("DONE" :foreground "#b9d977" :weight bold)
-	      ("BACKLOG" :foreground "#c92b14" :weight bold)
-	      ("ACTIVE" :foreground "#72aaca" :weight bold)
-	      ("WAITING" :foreground "#9877D9" :weight bold)
-	      ("ON HOLD" :foreground "#9877D9" :weight bold)
-	      ("COMPLETED" :foreground "#b9d977" :weight bold)
-	      ("CANCELLED" :foreground "#b9d977" :weight bold))))
-
 
 ;; Set priority levels
 (setq org-highest-priority ?A)
@@ -124,16 +113,16 @@
 
 ;; Setup capture
 (global-set-key (kbd "C-c c") 'org-capture)
-(setq org-default-notes-file "~/Documents/01-PROJECTS/org-files/inbox.org")
+(setq org-default-notes-file "~/Org/inbox.org")
 
 
 ;; Capture templates
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/pCloudDrive/org/inbox.org" "ACTIONABLES")
+      '(("t" "todo" entry (file+headline "~/Org/inbox.org" "ACTIONABLES")
 	 "* TODO %?")
-	("n" "note" entry (file+headline "~/pCloudDrive/org/inbox.org" "NOTES")
+	("n" "note" entry (file+headline "~/Org/inbox.org" "NOTES")
 	 "* %? :note:")
-	("j" "journal" entry (file+datetree "~/pCloudDrive/org/diary.org"))))
+	("j" "journal" entry (file+datetree "~/Org/diary.org"))))
 
 
 ;; Setup refiling
@@ -179,8 +168,13 @@
        ("d" "Today's dashboard"
 	(
 	 (agenda "" ((org-agenda-span 1)))
-	 
-	 (tags-todo "SCHEDULED=\"<today>\""
+
+     (tags-todo "SCHEDULED=\"<today>\"+PRIORITY=\"A\"-email-call"
+        ((org-agenda-overriding-header "TODAY'S FOCUS")
+         (org-agenda-files org-agenda-files))
+     )
+
+	 (tags-todo "SCHEDULED=\"<today>\"-PRIORITY=\"A\"-email-call"
 	       ((org-agenda-overriding-header "TODAY'S TASKS")
 		(org-agenda-files org-agenda-files)
 		(org-agenda-sorting-strategy '(deadline-up priority-down))))
@@ -208,7 +202,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-directory "~/pCloudDrive/org")
+ '(org-directory "~/Org")
  '(org-agenda-files (list org-directory))
  '(package-selected-packages
    (quote
