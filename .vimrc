@@ -35,9 +35,8 @@ Plugin 'ctrlpvim/ctrlp.vim'                 " Full path fuzzy file, buffer, mru,
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'bling/vim-airline'                   " Status bar
 Plugin 'vim-airline/vim-airline-themes'      " Themes for airline
-"Plugin 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'terryma/vim-multiple-cursors'       " Sublime Text style multiple selections
-"Plugin 'rosenfeld/conque-term'              " Consoles as buffers
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML, tags and more
 
 "-------------------=== Snippets support ===--------------------
@@ -159,6 +158,10 @@ nmap " :NERDTreeToggle<CR>
 "=====================================================
 let g:airline#extensions#tabline#enabled = 1    " Automatically displays all buffers when there's only one tab open.
 let g:airline_theme = 'palenight'
+
+" Make tmux use tmuxline when it starts
+let g:airline#extensions#tmuxline#enabled = 1
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 
 "=====================================================
 "" ctrlp settings
