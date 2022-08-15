@@ -15,12 +15,13 @@ alias python='python3'
 # Docker commands
 #alias postgres='docker start postgres && docker exec -it postgres /bin/bash'
 alias postgres='docker run --rm -d --name postgres -e POSTGRES_USERNAME=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -v $PWD:$HOME postgres:13-alpine && docker exec -it postgres bin/bash'
-alias liquibase='docker run --rm -v $PWD:/liquibase/changelog liquibase/liquibase'
+#alias liquibase='docker run --rm -v $PWD:/liquibase/changelog liquibase/liquibase'
+alias liquibase='docker run --rm -u 1000:1000 --network="host" -v $PWD:/liquibase/changelog liquibase/liquibase'
 alias psql='docker run --rm -it -v $PWD:/tmp postgres:13-alpine psql'
+alias pg_dump='docker run --rm -it -v $PWD:/tmp postgres:13-alpine pg_dump'
 
 # Python virtual environments
 alias list-venv='ls $HOME/Virtualenv'
-
 
 # function to rollback apt-get upgrades
 # from https://unix.stackexchange.com/questions/79050/can-i-rollback-an-apt-get-upgrade-if-something-goes-wrong

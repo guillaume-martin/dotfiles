@@ -256,25 +256,34 @@ for_window [class="Tor Browser"] floating enable
 # assign [class="DBeaver"] $ws3
 
 # Internet
-# assign [class="firefox"] $ws5
+assign [class="firefox"] $ws5
 # assign [class="Tor Browser"] $ws5
 
 # Productivity
-# assign [class="Joplin"] $ws8
+assign [class="Joplin"] $ws3
 
+# Communication
+assign [class="Slack"] $ws10
+
+# Other
+assign [class="KeePassXC"] $ws2
 
 #==============================================================================#
 #                        *** autostart applications ***                        #
 #==============================================================================#
 
 # Setup the wallpaper
-exec_always feh --bg-scale $HOME/.wallpapers/wallpaper.jpg
+# exec_always feh --bg-scale $HOME/.wallpapers/wallpaper.jpg
 
 # Start Network Manager
 exec --no-startup-id nm-applet
 
-exec /opt/pcloud/pcloud
-exec /opt/cryptomator/cryptomator.AppImage
+# Every morning, I start the same apps
+exec --no-startup-id i3-sensible-terminal -e tmux_default
+exec --no-startup-id firefox
+exec --no-startup-id /home/guillaume/.joplin/Joplin.AppImage
+exec --no-startup-id slack
+exec --no-startup-id keepassxc
 
 #==============================================================================#
 #                                  *** mouse ***                               #
