@@ -32,11 +32,11 @@ Plugin 'ctrlpvim/ctrlp.vim'                 " Full path fuzzy file, buffer, mru,
 "-------------------=== Other ===-------------
 "Plugin 'flazz/vim-colorschemes'             " Colorschemes
 "Plugin 'vim-airline/vim-airline'            " Status bar
+Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'bling/vim-airline'                   " Status bar
 Plugin 'vim-airline/vim-airline-themes'      " Themes for airline
-"Plugin 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'terryma/vim-multiple-cursors'       " Sublime Text style multiple selections
-"Plugin 'rosenfeld/conque-term'              " Consoles as buffers
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML, tags and more
 
 "-------------------=== Snippets support ===--------------------
@@ -81,7 +81,7 @@ let g:snipMate = {'snippet_version' : 1 }
 syntax enable
 
 set background=dark
-colorscheme onedark 
+colorscheme palenight 
 set t_Co=256
 
 " enable hybrid line numbers
@@ -102,6 +102,7 @@ set formatoptions-=tc                       " prevent vim from automatically spl
 set fileformat=unix
 
 set cursorline                              " shows line under the cursor's line
+let g:lightline = {'colorscheme': 'palenight'}
 set showmatch                               " shows matching part of bracket pairs (), [], {}
 
 set enc=utf-8	                            " utf-8 by default
@@ -156,6 +157,11 @@ nmap " :NERDTreeToggle<CR>
 "" airline settings
 "=====================================================
 let g:airline#extensions#tabline#enabled = 1    " Automatically displays all buffers when there's only one tab open.
+let g:airline_theme = 'palenight'
+
+" Make tmux use tmuxline when it starts
+let g:airline#extensions#tmuxline#enabled = 1
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 
 "=====================================================
 "" ctrlp settings
