@@ -113,16 +113,16 @@
 
 ;; Setup capture
 (global-set-key (kbd "C-c c") 'org-capture)
-(setq org-default-notes-file "~/Org/inbox.org")
+(setq org-default-notes-file "~/pCloudDrive/org/inbox.org")
 
 
 ;; Capture templates
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/Org/inbox.org" "ACTIONABLES")
+      '(("t" "todo" entry (file+headline "~/pCloudDrive/org/inbox.org" "ACTIONABLES")
 	 "* TODO %?")
-	("n" "note" entry (file+headline "~/Org/inbox.org" "NOTES")
+	("n" "note" entry (file+headline "~/pCloudDrive/org/inbox.org" "NOTES")
 	 "* %? :note:")
-	("j" "journal" entry (file+datetree "~/Org/diary.org"))))
+	("j" "journal" entry (file+datetree "~/pCloudDrive/org/diary.org"))))
 
 
 ;; Setup refiling
@@ -202,7 +202,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-directory "~/Org")
+ '(org-directory "~/pCloudDrive/org")
  '(org-agenda-files (list org-directory))
  '(package-selected-packages
    (quote
