@@ -11,6 +11,8 @@ alias update-joplin='wget -O - https://raw.githubusercontent.com/laurent22/jopli
 
 #alias 7z='p7zip'
 alias python='python3'
+alias pip='pip3'
+
 
 # Docker commands
 #alias postgres='docker start postgres && docker exec -it postgres /bin/bash'
