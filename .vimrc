@@ -34,6 +34,7 @@ Plugin 'ctrlpvim/ctrlp.vim'                 " Full path fuzzy file, buffer, mru,
 "Plugin 'vim-airline/vim-airline'            " Status bar
 "Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'dracula/vim', {'name':'dracula'}
+Plugin 'bling/vim-airline'                   " Status bar
 Plugin 'vim-airline/vim-airline-themes'      " Themes for airline
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'terryma/vim-multiple-cursors'       " Sublime Text style multiple selections
