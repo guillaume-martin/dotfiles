@@ -102,9 +102,12 @@ if ! shopt -oq posix; then
 fi
 
 
-for file in ~/.{bash_prompt,bash_aliases,bash_profile}; do
+for file in ~/.{bash_prompt,bash_profile}; do
         if [[ -r "$file" ]] && [[ -f "$file" ]]; then
                 source "$file"
         fi
 done
+
+# Load aliases
+source $HOME/.config/aliases/aliases
 

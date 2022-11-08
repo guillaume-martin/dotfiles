@@ -1,0 +1,95 @@
+
+alias bashrc='source $HOME/.bashrc'
+
+
+# +----+
+# | ls |
+# +----+
+alias la="ls -Alh --group-directories-first"
+alias ll="ls -lh --group-directories-first"
+
+
+# +----+
+# | cp |
+# +----+
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+
+
+# +----+
+# | cd |
+# +----+
+alias back='cd -'
+
+
+# +--------+
+# | Joplin |
+# +--------+
+alias update-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash'
+
+
+# +--------+
+# | python |
+# +--------+
+alias python='python3'
+alias pip='pip3'
+alias list-venv='ls $HOME/Virtualenv'
+
+
+# +--------+
+# | Docker |
+# +--------+
+#alias postgres='docker start postgres && docker exec -it postgres /bin/bash'
+alias postgres='docker run --rm -d --name postgres -e POSTGRES_USERNAME=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -v $PWD:$HOME postgres:13-alpine && docker exec -it postgres bin/bash'
+alias liquibase='docker run --rm -u 1000:1000 --network="host" -v $PWD:/liquibase/changelog liquibase/liquibase'
+alias psql='docker run --rm -it -v $PWD:/tmp postgres:13-alpine psql'
+
+
+# +------+
+# | git |
+# +-----+
+alias gs="git status"
+alias gss="git status -s"
+alias ga="git add"
+alias gp="git push"
+alias gc="git commit"
+alias gp="git pull"
+alias gm="git marge"
+alias gd="git diff"
+alias gl="git log --oneline"
+
+# +------+
+# | tmux |
+# +------+
+alias tmuxls="tmux list-session"
+alias tmuxa="tmux attach -t"
+alias tmuxk="tmux kill-session -t"
+
+# +-----+
+# | apt |
+# +-----+
+# function to rollback apt-get upgrades
+# from https://unix.stackexchange.com/questions/79050/can-i-rollback-an-apt-get-upgrade-if-something-goes-wrong
+function apt-history(){
+    case "$1" in
+      install)
+            cat /var/log/dpkg.log | grep 'install '
+            ;;
+      upgrade|remove)
+            cat /var/log/dpkg.log | grep $1
+            ;;
+      rollback)
+            cat /var/log/dpkg.log | grep upgrade | \
+                grep "$2" -A10000000 | \
+                grep "$3" -B10000000 | \
+                awk '{print $4"="$5}'
+            ;;
+      *)
+            cat /var/log/dpkg.log
+            ;;
+    esac
+}
+
+
+
