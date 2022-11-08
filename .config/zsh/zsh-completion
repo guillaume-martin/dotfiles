@@ -3,8 +3,6 @@
 # | General |
 # +---------+
 
-# Set path to .zcompdump
-compinit -d "$XDG_CACHE_HOME/zsh"
 
 # Load more completions
 fpath=($DOTFILES/.config/zsh/plugins/zsh-completions/src $fpath)
@@ -27,6 +25,7 @@ bindkey -M menuselect '^xu' undo                           # Undo
 
 autoload -U compinit; compinit
 _comp_options+=(globdots) # With hidden files
+compinit -d "$XDG_CACHE_HOME/zsh"
 
 # Only work with the Zsh function vman
 # See $DOTFILES/zsh/scripts.zsh
