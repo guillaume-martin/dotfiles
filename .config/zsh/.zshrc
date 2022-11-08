@@ -16,7 +16,7 @@ source $DOTFILES/.config/zsh/prompt/zsh-prompt
 source $XDG_CONFIG_HOME/aliases/aliases
 
 # Enable completion
-source $ZDOTDIR/completion.zsh
+source $ZDOTDIR/zsh-completion
 
 # Colors
 autoload -Uz colors && colors

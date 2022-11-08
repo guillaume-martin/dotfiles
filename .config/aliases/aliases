@@ -50,6 +50,7 @@ alias psql='docker run --rm -it -v $PWD:/tmp postgres:13-alpine psql'
 # | git |
 # +-----+
 alias gb="git branch"
+alias gco="git checkout"
 alias gcob="git checkout -b"
 alias gs="git status"
 alias gss="git status -s"
