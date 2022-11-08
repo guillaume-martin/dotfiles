@@ -66,10 +66,12 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # Start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+
 
 # i3-dmenu-desktop includes applications with a .desktop file. 
-# bindsym Ctrl+space exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
 #==============================================================================#
 #                            *** status bar ***                                #
@@ -78,11 +80,20 @@ bindsym $mod+d exec dmenu_run
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        position top
-        status_command i3status
+  position top
+  status_command i3status
+  colors {
+    background #282A36
+    statusline #F8F8F2
+    separator  #44475A
+
+    focused_workspace  #44475A #44475A #F8F8F2
+    active_workspace   #282A36 #44475A #F8F8F2
+    inactive_workspace #282A36 #282A36 #BFBFBF
+    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    binding_mode       #FF5555 #FF5555 #F8F8F2
+  }
 }
-
-
 #==============================================================================#
 #                              *** workspaces ***                              #
 #==============================================================================#
@@ -171,8 +182,10 @@ bindsym $mod+a focus parent
 #                             *** windows layout***                            #
 #==============================================================================#
 
-# Set windows boder
-for_window [class=".*"] border pixel 1
+# Set windows border
+# for_window [class=".*"] border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
 
 # Popups during fullscreen mode
 popup_during_fullscreen smart
@@ -260,21 +273,35 @@ for_window [class="Tor Browser"] floating enable
 # assign [class="Tor Browser"] $ws5
 
 # Productivity
-# assign [class="Joplin"] $ws8
+assign [class="Joplin"] $ws3
 
+# Communication
+assign [class="Slack"] $ws10
+assign [class="thunderbird"] $ws9
+
+# Other
+assign [class="KeePassXC"] $ws2
+assign [class="Bitwarden"] $ws2
 
 #==============================================================================#
 #                        *** autostart applications ***                        #
 #==============================================================================#
 
 # Setup the wallpaper
-exec_always feh --bg-scale $HOME/.wallpapers/wallpaper.jpg
+# exec_always feh --bg-scale $HOME/.wallpapers/wallpaper.jpg
 
 # Start Network Manager
 exec --no-startup-id nm-applet
 
-exec /opt/pcloud/pcloud
-exec /opt/cryptomator/cryptomator.AppImage
+# Every morning, I start the same apps
+exec --no-startup-id i3-sensible-terminal -e tmux_default
+exec --no-startup-id thunderbird
+exec --no-startup-id /home/guillaume/.joplin/Joplin.AppImage
+exec --no-startup-id slack
+exec --no-startup-id keepassxc
+exec --no-startup-id /opt/cryptomator/cryptomator.AppImage
+exec --no-startup-id /opt/bitwarden/bitwarden.AppImage
+
 
 #==============================================================================#
 #                                  *** mouse ***                               #
@@ -307,13 +334,15 @@ focus_follows_mouse no
 #==============================================================================#
 
 # Windows decoration colors
-# class                 border  backgr. text    indicator
-client.placeholder      #242424 #242424 #242424
-client.background       #242424 #242424 #242424
-client.focused          #4A4A4A #4A4A4A #e5e5e5 #4A4A4A
-client.unfocused        #222222 #222222 #aaaaaa #222222
-client.focused_inactive #222222 #222222 #a9a9a9 #222222
-client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
+# Dracula theme
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
 
 
 #==============================================================================#

@@ -102,7 +102,7 @@
 ;; for projects
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "|" "DONE(d)")
-	      (sequence "BACKLOG(b)" "ACTIVE(a)" "HOLD(h)" "WAITING(w)" "|" "COMPLETED(c)" "CANCELLED(k)"))))
+	      )))
 
 
 ;; Set priority levels

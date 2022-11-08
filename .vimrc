@@ -49,7 +49,6 @@ Plugin 'honza/vim-snippets'                 " snippets repo
 "-------------------=== Filetypes support ===-------------
 Plugin 'chrisbra/csv.vim'                   " support for csv files
 Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
 Plugin 'gabrielelana/vim-markdown'
 
 "-------------------=== Language support ===-------------
@@ -174,7 +173,7 @@ let g:ctrlp_working_path_mode = 'ra'            " open in current directory
 "=====================================================
 "" tmuxline settings
 "=====================================================
-let g:tmuxline_theme = 'monokai'
+let g:tmuxline_theme = 'dracula'
 
 "====================================================
 "" YouCompleteMe
