@@ -1,8 +1,13 @@
 #!/usr/bin/env zsh
 
+# XDG Paths
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME'/.local/share"
+
+
 # Set path to config files
 export DOTFILES="$HOME/.dotfiles"
-export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
