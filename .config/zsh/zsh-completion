@@ -3,6 +3,9 @@
 # | General |
 # +---------+
 
+# Set path to .zcompdump
+compinit -d "$XDG_CACHE_HOME/zsh"
+
 # Load more completions
 fpath=($DOTFILES/.config/zsh/plugins/zsh-completions/src $fpath)
 
