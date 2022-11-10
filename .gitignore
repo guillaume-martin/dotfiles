@@ -2,5 +2,9 @@
 
 .vim/bundle
 
+# +-----------+ 
+# | ZSH Files |
+# +-----------+
 .zhistory
 .zcompdump 
+.config/zsh/plugins
