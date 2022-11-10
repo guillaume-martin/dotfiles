@@ -33,7 +33,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c %{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})"
 
 
-PROMPT="┌┤ "
+PROMPT="${NEWLINE}"                  # Add a space before the prompt
+PROMPT+="┌┤ "
 PROMPT+="%? "                        # Status of last command
 PROMPT+="%* "                        # Timestamp
 PROMPT+="%F{blue}%B%n%b%f "          # Username
