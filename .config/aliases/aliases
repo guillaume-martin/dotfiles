@@ -69,6 +69,13 @@ alias tmuxls="tmux list-session"
 alias tmuxa="tmux attach -t"
 alias tmuxk="tmux kill-session -t"
 
+
+# +--------+
+# | Proton |
+# +--------+
+
+alias vpn="protonvpn-cli"
+
 # +-----+
 # | apt |
 # +-----+
