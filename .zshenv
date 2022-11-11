@@ -17,3 +17,10 @@ export SAVEHIST=10000                          # Maximum events in history file
 # Set default editor
 export EDITOR="vim"
 export VISUAL="vim"
+
+# virtualenvwrapper setup
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=/home/guillaume/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV=/home/guillaume/.local/bin/virtualenv
+source ~/.local/bin/virtualenvwrapper.sh
+
