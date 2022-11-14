@@ -5,6 +5,7 @@ alias bashrc='source $HOME/.bashrc'
 # +----+
 # | ls |
 # +----+
+alias ls="ls --color"
 alias la="ls -Alh --group-directories-first --color"
 alias ll="ls -lh --group-directories-first --color"
 
