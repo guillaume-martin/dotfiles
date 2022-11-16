@@ -22,5 +22,4 @@ export VISUAL="vim"
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=/home/guillaume/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV=/home/guillaume/.local/bin/virtualenv
-source ~/.local/bin/virtualenvwrapper.sh
 

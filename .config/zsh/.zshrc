@@ -27,6 +27,9 @@ autoload -Uz colors && colors
 # Source: https://github.com/zsh-users/zsh-autosuggestions/issues/229#issuecomment-300675586
 TERM=xterm-256color
 
+# Activate virtualenvwrapper
+source ~/.local/bin/virtualenvwrapper.sh
+
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
