@@ -6,5 +6,7 @@
 # | ZSH Files |
 # +-----------+
 .zhistory
-.zcompdump 
+.config/zsh/.zcompdump 
 .config/zsh/plugins
+.config/zsh/.zprofile
+
