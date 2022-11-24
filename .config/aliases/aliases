@@ -23,6 +23,10 @@ alias rm="rm -iv"
 # +----+
 alias back='cd -'
 
+# +------+
+# | grep |
+# +------+
+alias grep="grep --color"
 
 # +--------+
 # | Joplin |

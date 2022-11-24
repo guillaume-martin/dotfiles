@@ -9,7 +9,7 @@ source "$ZDOTDIR/zsh-functions"
 # Setup options
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
-stty stop undef # Disable Ctrl+S to freeze terminar
+stty stop undef # Disable Ctrl+S to freeze terminal
 
 # Load prompt
 source $ZDOTDIR/zsh-prompt
@@ -18,7 +18,9 @@ source $ZDOTDIR/zsh-prompt
 source $XDG_CONFIG_HOME/aliases/aliases
 
 # Enable completion
+autoload bashcompinit && bashcompinit
 source $ZDOTDIR/zsh-completion
+complete -C "/usr/bin/aws_completer" aws
 
 # Colors
 autoload -Uz colors && colors

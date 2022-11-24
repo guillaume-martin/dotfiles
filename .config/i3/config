@@ -288,7 +288,7 @@ assign [class="Bitwarden"] $ws2
 #==============================================================================#
 
 # Setup the wallpaper
-# exec_always feh --bg-scale $HOME/.wallpapers/wallpaper.jpg
+exec_always feh --bg-fill $HOME/.wallpapers/wallpaper.jpg
 
 # Start Network Manager
 exec --no-startup-id nm-applet
