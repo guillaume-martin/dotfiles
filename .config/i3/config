@@ -182,6 +182,9 @@ bindsym $mod+a focus parent
 #                             *** windows layout***                            #
 #==============================================================================#
 
+# Enable transparency
+# opacity-rule = ["80:class_g = 'Xfce4-terminal'"];
+
 # Set windows border
 # for_window [class=".*"] border pixel 1
 default_border pixel 2
