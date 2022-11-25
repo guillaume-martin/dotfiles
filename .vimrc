@@ -61,6 +61,7 @@ Plugin 'Yggdroot/indentLine'                " shows identation guides
 Plugin 'tmhedberg/SimpylFold'               " manage folds of methods and classes
 Plugin 'mitsuhiko/vim-jinja'                " Jinja support
 Plugin 'raimondi/delimitmate'               " automatic closing of quotes, parenthesis, brackets, etc.
+Plugin 'hashivim/vim-terraform'             " Enables highlighting for Terraform files + :Terraform cmd
 
 "-----------------=== git support ===-----------------
 Plugin 'airblade/vim-gitgutter'             " shows edit signs in gutter
