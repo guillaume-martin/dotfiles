@@ -1,270 +1,187 @@
-" vim setting for python development
-
-set nocompatible
-
-"=================
-" Vundle settings
-"=================
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"
+" Requirements
+"   - fzf
+"   - ripgrep
+"
 
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
+    set nocompatible
 
-"-------------------=== Code/Project navigation ===-------------
-Plugin 'scrooloose/nerdtree'                " Project and file navigation
-Plugin 'majutsushi/tagbar'                  " Class/module browser
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'ctrlpvim/ctrlp.vim'                 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-"Plugin 'severin-lemaignan/vim-minimap'      " add minimap
-"Plugin 'jlanzarotta/bufexplorer'            " Easily switch between buffers
-
-"-------------------=== Other ===-------------
-"Plugin 'flazz/vim-colorschemes'             " Colorschemes
-"Plugin 'vim-airline/vim-airline'            " Status bar
-"Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'dracula/vim', {'name':'dracula'}
-Plugin 'bling/vim-airline'                   " Status bar
-Plugin 'vim-airline/vim-airline-themes'      " Themes for airline
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'terryma/vim-multiple-cursors'       " Sublime Text style multiple selections
-Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML, tags and more
-
-"-------------------=== Snippets support ===--------------------
-Plugin 'garbas/vim-snipmate'                " Snippets manager
-Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
-Plugin 'tomtom/tlib_vim'                    " dependencies #2
-Plugin 'honza/vim-snippets'                 " snippets repo
-
-"-------------------=== Filetypes support ===-------------
-Plugin 'chrisbra/csv.vim'                   " support for csv files
-Plugin 'godlygeek/tabular'
-Plugin 'gabrielelana/vim-markdown'
-
-"-------------------=== Language support ===-------------
-Plugin 'tpope/vim-commentary'               " Comment stuff out
-Plugin 'Valloric/YouCompleteMe'             " Autocomplete plugin
-Plugin 'W0rp/ale'                           " Syntax checking
-Plugin 'nvie/vim-flake8'                    " PEP 8 checking
-Plugin 'vim-scripts/indentpython.vim'       " auto-identation
-Plugin 'Yggdroot/indentLine'                " shows identation guides
-Plugin 'tmhedberg/SimpylFold'               " manage folds of methods and classes
-Plugin 'mitsuhiko/vim-jinja'                " Jinja support
-Plugin 'raimondi/delimitmate'               " automatic closing of quotes, parenthesis, brackets, etc.
-
-"-----------------=== git support ===-----------------
-Plugin 'airblade/vim-gitgutter'             " shows edit signs in gutter
-Plugin 'tpope/vim-fugitive'                 " performs basic gits commands
-Plugin 'Xuyuanp/nerdtree-git-plugin'        " git support for NERDTree
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"=========
+" LEADER  
+"=========
+    let mapleader = ","
 
 
-"=========================
-" general settings
-"=========================
-" Stop the snipMate error message
-let g:snipMate = {'snippet_version' : 1 }
+"===============
+" Runtime Path
+"===============
 
-syntax enable
+    set rtp+=~/.vim/bundle/Vundle.vim	" Set the runtime path
+    
 
-set background=dark
-colorscheme dracula
-set t_Co=256
+"===============
+"  Plugins
+"===============
 
-" enable hybrid line numbers
-set number relativenumber
-set nu rnu
-
-set cc=80
-set ruler
-set ttyfast                                 " terminal acceleration
-
-set tabstop=4                               " 4 whitespaces for tabs visual presentation
-set shiftwidth=4                            " shift lines by 4 spaces
-set textwidth=79
-set smarttab                                " set tabs for a shifttabs logic
-set expandtab                               " expand tabs into spaces
-set autoindent                              " indent when moving to the next line while writing code
-set formatoptions-=tc                       " prevent vim from automatically spliting long lines
-set fileformat=unix
-
-set cursorline                              " shows line under the cursor's line
-let g:lightline = {'colorscheme': 'dracula'}
-set showmatch                               " shows matching part of bracket pairs (), [], {}
-
-set enc=utf-8	                            " utf-8 by default
-
-set backspace=indent,eol,start              " backspace removes all (indents, EOLs, start) What is start?
-
-set scrolloff=10                            " let 10 lines before/after cursor during scroll
-
-set clipboard=unnamed                       " use system clipboard
-
-" setup split screen
-set splitbelow
-set splitright
-" splits navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" enable folding
-set foldmethod=indent
-set foldlevel=99
-" map space bar to folding
-nnoremap <space> za
-
-"=====================================================
-"" Tabs / Buffers settings
-"=====================================================
-tab sball
-set switchbuf=useopen
-set laststatus=2
-nmap <F9> :bprev<CR>
-nmap <F10> :bnext<CR>
-nmap <silent> <leader>q :SyntasticCheck # <CR> :bp <BAR> bd #<CR>
-
-"=====================================================
-"" Search settings
-"=====================================================
-set incsearch	                            " incremental search
-set hlsearch	                            " highlight search results
+    filetype off				" required
 
 
-"=====================================================
-"" NERDTree settings
-"=====================================================
-let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
-let NERDTreeWinSize=30
-autocmd VimEnter * if !argc() | NERDTree | endif            " Load NERDTree only if vim is run without arguments
-nmap " :NERDTreeToggle<CR>
+    call vundle#begin()
 
-"=====================================================
-"" airline settings
-"=====================================================
-let g:airline#extensions#tabline#enabled = 1    " Automatically displays all buffers when there's only one tab open.
-let g:airline_theme = 'dracula'
+    Plugin 'gmarik/Vundle.vim'
+
+
+" Interface
+    Plugin 'dracula/vim', {'name':'dracula'}
+    Plugin 'bling/vim-airline'
+    Plugin 'edkolev/tmuxline.vim'
+
+" Filetypes
+    Plugin 'gabrielelana/vim-markdown'
+    Plugin 'hashivim/vim-terraform'	        " Highlighting in .tf files + :Terraform cmd
+
+" Highlighting
+    Plugin 'ap/vim-css-color'               " Color name highlighter: #324394
+
+" Languages support
+    Plugin 'tpope/vim-commentary'	        " Comment stuff out
+    Plugin 'nvie/vim-flake8'	   	        " PEP 8 checking
+    Plugin 'vim-scripts/indentpython.vim'       " auto-identation
+    Plugin 'Yggdroot/indentLine'                " shows identation guides
+    Plugin 'tmhedberg/SimpylFold'               " manage folds of methods and classes
+    Plugin 'raimondi/delimitmate'               " automatic closing of quotes, parenthesis, brackets, etc.
+
+" Git support
+    Plugin 'airblade/vim-gitgutter'             " shows edit signs in gutter
+    Plugin 'tpope/vim-fugitive'                 " performs basic gits commands
+    Plugin 'Xuyuanp/nerdtree-git-plugin'        " git support for NERDTree
+
+" Productivity
+    Plugin 'vimwiki/vimwiki'
+    Plugin 'junegunn/fzf.vim'
+    Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+call vundle#end()
+filetype plugin indent on
+
+
+"===================
+" General settings
+"===================
+
+" Misc
+    set ttyfast				" Terminal acceleration
+    set fileformat=unix
+    set encoding=utf-8
+    set fileencoding=utf-8      " Set file encoding
+    set clipboard=unnamed		" Use system clipboard
+
+" Syntax highlighting
+    syntax enable
+    " Highlight trailing white spaces
+    autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
+    autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
+    highlight EOLWS ctermbg=red guibg=red
+
+" Theme
+    set background=dark
+    colorscheme dracula
+    set t_Co=256
+
+" Lines numbers
+    set number relativenumber
+    set nu rnu
+
+" Ruler
+    set cc=80
+    set ruler
+    set textwidth=79
+    set formatoptions-=tc       " Prevent vim from automatically splitting long lines
+
+" Indents
+    set tabstop=4       " The width of the tab is set to 4
+    set shiftwidth=4    " Indents will have a width of 4
+    set smarttab        
+    set expandtab       " Expand TAB to spaces
+    set autoindent      " New lines inherit indentation of preceding line
+
+" Current line
+    set cursorline		" Shows line under the cursor's line
+    let g:lightline = {'cholorscheme': 'dracula'}
+
+" Brackets
+    set showmatch		" shows matching bracket pairs
+
+" Comments
+    " Disable auto comment on new lines
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Autocompletion
+    set wildmenu        " Tab through menu lists
+    set wildmode=longest,full,full
+
+" Deletion
+    set backspace=indent,eol,start      " Backspace removes all
+
+" Scrolling
+    set scrolloff=999		" Keep cursor in middle of screen at all time
+
+" Folding
+    set foldmethod=indent
+    set foldlevel=99
+    nnoremap <space> za
+
+" Search
+    set ignorecase          " Search ignoring case
+
+" Splits
+    set splitbelow
+    set splitright
+
+"==============
+" Key mapping 
+"==============
+
+    " Splits navigation
+    nnoremap <C-J> <C-W><C-J>
+    nnoremap <C-K> <C-W><C-K>
+    nnoremap <C-L> <C-W><C-L>
+    nnoremap <C-H> <C-W><C-H>
+
+    " Movelines up an down
+    " https://vim.fandom.com/wiki/Moving_lines_up_or_down
+    nnoremap <C-S-J> :m .+1<CR>==
+    nnoremap <C-S-K> :m .-2<CR>==
+    inoremap <C-S-J> <Esc>:m .+1<CR>==gi
+    inoremap <C-S-K> <Esc>:m .-2<CR>==gi
+    vnoremap <C-S-J> :m '>+1<CR>gv=gv
+    vnoremap <C-S-K> :m '<-2<CR>gv=gv
+
+"===========
+"  Airline
+"===========
+    let g:airline#extensions#tabline#enabled = 1    " Automatically displays all buffers when there's only one tab open.
+    let g:airline_theme = 'dracula'
 
 " Make tmux use tmuxline when it starts
-let g:airline#extensions#tmuxline#enabled = 1
-let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
+    let g:airline#extensions#tmuxline#enabled = 1
+    let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
+    let g:tmuxline_theme = 'dracula'
 
-"=====================================================
-"" ctrlp settings
-"=====================================================
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'            " open in current directory
 
-"=====================================================
-"" tmuxline settings
-"=====================================================
-let g:tmuxline_theme = 'dracula'
+"==========
+" VimWiki
+"=========
+    let g:vimwiki_list = [{'path': '~/Documents/', 'syntax': 'markdown', 'ext': '.md'}]
 
-"====================================================
-"" YouCompleteMe
-"====================================================
-set completeopt-=preview
+" Setup syntax
+    let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 
-let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=0
+" Make vimwiki links as [text](text.md) instead of [text](text})
+    let g:vimwiki_markdown_link_ext = 1
 
-nmap <leader>g :YcmCompleter GoTo<CR>
-nmap <leader>d :YcmCompleter GoToDefinition<CR>
-
-"=====================================================
-"" Python settings
-"=====================================================
-" python executables for different plugins
-let g:pymode_python='python'
-let g:syntastic_python_python_exec='python'
-
-" rope
-let g:pymode_rope=0
-let g:pymode_rope_completion=0
-let g:pymode_rope_complete_on_dot=0
-let g:pymode_rope_auto_project=0
-let g:pymode_rope_enable_autoimport=0
-let g:pymode_rope_autoimport_generate=0
-let g:pymode_rope_guess_project=0
-
-" documentation
-let g:pymode_doc=0
-let g:pymode_doc_bind='K'
-
-" lints
-let g:pymode_lint=0
-
-" virtualenv
-let g:pymode_virtualenv=1
-
-" breakpoints
-let g:pymode_breakpoint=1
-let g:pymode_breakpoint_key='<leader>b'
-
-" syntax highlight
-let g:pymode_syntax=1
-let g:pymode_syntax_slow_sync=1
-let g:pymode_syntax_all=1
-let g:pymode_syntax_print_as_function=g:pymode_syntax_all
-let g:pymode_syntax_highlight_async_await=g:pymode_syntax_all
-let g:pymode_syntax_highlight_equal_operator=g:pymode_syntax_all
-let g:pymode_syntax_highlight_stars_operator=g:pymode_syntax_all
-let g:pymode_syntax_highlight_self=g:pymode_syntax_all
-let g:pymode_syntax_indent_errors=g:pymode_syntax_all
-let g:pymode_syntax_string_formatting=g:pymode_syntax_all
-let g:pymode_syntax_space_errors=g:pymode_syntax_all
-let g:pymode_syntax_string_format=g:pymode_syntax_all
-let g:pymode_syntax_string_templates=g:pymode_syntax_all
-let g:pymode_syntax_doctests=g:pymode_syntax_all
-let g:pymode_syntax_builtin_objs=g:pymode_syntax_all
-let g:pymode_syntax_builtin_types=g:pymode_syntax_all
-let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
-let g:pymode_syntax_docstrings=g:pymode_syntax_all
-
-" highlight 'long' lines (>= 80 symbols) in python files
-augroup vimrc_autocmds
-    autocmd!
-    autocmd FileType python,rst,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python,rst,c,cpp match Excess /\%81v.*/
-    autocmd FileType python,rst,c,cpp set nowrap
-    autocmd FileType python,rst,c,cpp set colorcolumn=80
-augroup END
-
-" code folding
-let g:pymode_folding=0
-
-" pep8 indents
-let g:pymode_indent=1
-
-" code running
-let g:pymode_run=1
-let g:pymode_run_bind='<F5>'
-
-" syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_aggregate_errors=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_error_symbol='X'
-let g:syntastic_style_error_symbol='X'
-let g:syntastic_warning_symbol='x'
-let g:syntastic_style_warning_symbol='x'
-let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
+" Don't conceal on the cursor line
+    let g:indentLine_setConceal = 0                 " Need to disable conceal in indentline plugin
+    set concealcursor=nc
 

@@ -182,6 +182,9 @@ bindsym $mod+a focus parent
 #                             *** windows layout***                            #
 #==============================================================================#
 
+# Enable transparency
+# opacity-rule = ["80:class_g = 'Xfce4-terminal'"];
+
 # Set windows border
 # for_window [class=".*"] border pixel 1
 default_border pixel 2
@@ -288,7 +291,7 @@ assign [class="Bitwarden"] $ws2
 #==============================================================================#
 
 # Setup the wallpaper
-# exec_always feh --bg-scale $HOME/.wallpapers/wallpaper.jpg
+exec_always feh --bg-fill $HOME/.wallpapers/wallpaper.jpg
 
 # Start Network Manager
 exec --no-startup-id nm-applet
