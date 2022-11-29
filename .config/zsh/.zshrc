@@ -32,6 +32,12 @@ TERM=xterm-256color
 # Activate virtualenvwrapper
 source ~/.local/bin/virtualenvwrapper.sh
 
+# Setup fzf
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
