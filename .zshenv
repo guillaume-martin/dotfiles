@@ -19,7 +19,7 @@ export EDITOR="vim"
 export VISUAL="vim"
 
 # virtualenvwrapper setup
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=/home/guillaume/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV=/home/guillaume/.local/bin/virtualenv
 
