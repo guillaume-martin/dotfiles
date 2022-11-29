@@ -170,3 +170,18 @@ filetype plugin indent on
     let g:tmuxline_theme = 'dracula'
 
 
+"==========
+" VimWiki
+"=========
+    let g:vimwiki_list = [{'path': '~/Documents/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Setup syntax
+    let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+
+" Make vimwiki links as [text](text.md) instead of [text](text})
+    let g:vimwiki_markdown_link_ext = 1
+
+" Don't conceal on the cursor line
+    let g:indentLine_setConceal = 0                 " Need to disable conceal in indentline plugin
+    set concealcursor=nc
+
