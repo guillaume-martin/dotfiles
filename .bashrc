@@ -114,3 +114,4 @@ done
 # Load aliases
 source $HOME/.config/aliases/aliases
 
+. "$HOME/.cargo/env"
