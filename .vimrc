@@ -32,6 +32,9 @@
     Plugin 'gmarik/Vundle.vim'
 
 
+" Files
+    Plugin 'preservim/nerdtree'
+
 " Interface
     Plugin 'dracula/vim', {'name':'dracula'}
     Plugin 'bling/vim-airline'
@@ -39,14 +42,14 @@
 
 " Filetypes
     Plugin 'gabrielelana/vim-markdown'
-    Plugin 'hashivim/vim-terraform'	        " Highlighting in .tf files + :Terraform cmd
+    Plugin 'hashivim/vim-terraform'	            " Highlighting in .tf files + :Terraform cmd
 
 " Highlighting
-    Plugin 'ap/vim-css-color'               " Color name highlighter: #324394
+    Plugin 'ap/vim-css-color'                   " Color name highlighter: #324394
 
 " Languages support
-    Plugin 'tpope/vim-commentary'	        " Comment stuff out
-    Plugin 'nvie/vim-flake8'	   	        " PEP 8 checking
+    Plugin 'tpope/vim-commentary'	            " Comment stuff out
+    Plugin 'nvie/vim-flake8'	   	            " PEP 8 checking
     Plugin 'vim-scripts/indentpython.vim'       " auto-identation
     Plugin 'Yggdroot/indentLine'                " shows identation guides
     Plugin 'tmhedberg/SimpylFold'               " manage folds of methods and classes
@@ -71,7 +74,7 @@ filetype plugin indent on
 "===================
 
 " Misc
-    set ttyfast				" Terminal acceleration
+    set ttyfast				                      " Terminal acceleration
     set fileformat=unix
     set encoding=utf-8
     set fileencoding=utf-8      " Set file encoding
@@ -169,6 +172,14 @@ filetype plugin indent on
     let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
     let g:tmuxline_theme = 'dracula'
 
+"===========
+" NerdTree 
+"===========
+ 
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
+let NERDTreeWinSize=30
+autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
+nmap " :NERDTreeToggle<CR>
 
 "==========
 " VimWiki
