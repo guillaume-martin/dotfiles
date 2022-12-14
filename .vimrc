@@ -36,8 +36,8 @@
     Plugin 'preservim/nerdtree'
 
 " Interface
-    Plugin 'dracula/vim', {'name':'dracula'}
-    Plugin 'bling/vim-airline'
+    " Plugin 'dracula/vim', {'name':'dracula'}
+    Plugin 'vim-airline/vim-airline-themes'
     Plugin 'edkolev/tmuxline.vim'
 
 " Filetypes
@@ -89,7 +89,7 @@ filetype plugin indent on
 
 " Theme
     set background=dark
-    colorscheme dracula
+    colorscheme gruvbox
     set t_Co=256
 
 " Lines numbers
@@ -111,7 +111,7 @@ filetype plugin indent on
 
 " Current line
     set cursorline		" Shows line under the cursor's line
-    let g:lightline = {'cholorscheme': 'dracula'}
+    let g:lightline = {'cholorscheme': 'gruvbox'}
 
 " Brackets
     set showmatch		" shows matching bracket pairs
@@ -165,12 +165,12 @@ filetype plugin indent on
 "  Airline
 "===========
     let g:airline#extensions#tabline#enabled = 1    " Automatically displays all buffers when there's only one tab open.
-    let g:airline_theme = 'dracula'
+    let g:airline_theme = 'gruvbox'
 
 " Make tmux use tmuxline when it starts
     let g:airline#extensions#tmuxline#enabled = 1
     let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
-    let g:tmuxline_theme = 'dracula'
+    let g:tmuxline_theme = 'gruvbox'
 
 "===========
 " NerdTree 
