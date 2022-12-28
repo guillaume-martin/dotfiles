@@ -258,6 +258,7 @@ floating_modifier $mod
 # for_window [class="KeePassXC"]   floating enable
 for_window [class="java"]        floating enable       # For cryptomator
 for_window [class="Tor Browser"] floating enable
+for_window [class="Mousepad"]    floating enable
 
 
 #==============================================================================#
