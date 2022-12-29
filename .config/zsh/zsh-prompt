@@ -36,7 +36,6 @@ zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c %{$fg[yellow
 PROMPT="${NEWLINE}"                        # Add a space before the prompt
 PROMPT+="┌┤ "
 PROMPT+="%(?.%F{green}%f.%F{red}%f) "    # Status of last command
-PROMPT+="%* "                              # Timestamp
 PROMPT+="%F{blue}%B%n%b%f "                # Username
 PROMPT+="at " 
 PROMPT+="%F{red}%B%m%b%f "                 # Hostname
