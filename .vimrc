@@ -37,6 +37,7 @@
 
 " Interface
     " Plugin 'dracula/vim', {'name':'dracula'}
+    Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'edkolev/tmuxline.vim'
 
@@ -61,7 +62,7 @@
     Plugin 'Xuyuanp/nerdtree-git-plugin'        " git support for NERDTree
 
 " Productivity
-    Plugin 'vimwiki/vimwiki'
+    " Plugin 'vimwiki/vimwiki'
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
@@ -165,12 +166,12 @@ filetype plugin indent on
 "  Airline
 "===========
     let g:airline#extensions#tabline#enabled = 1    " Automatically displays all buffers when there's only one tab open.
-    let g:airline_theme = 'gruvbox'
+    let g:airline_theme = 'base16_gruvbox_dark_hard'
 
 " Make tmux use tmuxline when it starts
     let g:airline#extensions#tmuxline#enabled = 1
     let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
-    let g:tmuxline_theme = 'gruvbox'
+    let g:tmuxline_theme = 'base16_gruvbox_dark_hard'
 
 "===========
 " NerdTree 

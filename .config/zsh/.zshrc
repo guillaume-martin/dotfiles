@@ -17,6 +17,9 @@ source $ZDOTDIR/zsh-prompt
 # Load aliases
 source $XDG_CONFIG_HOME/aliases/aliases
 
+# Load local settings
+source $XDG_CONFIG_HOME/profiles/profile
+
 # Enable completion
 autoload bashcompinit && bashcompinit
 source $ZDOTDIR/zsh-completion

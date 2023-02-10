@@ -43,4 +43,4 @@ PROMPT+="in "
 PROMPT+="%F{green}%B%1~%b%f"               # Directory
 PROMPT+="\$vcs_info_msg_0_ "               # Git status
 PROMPT+="${NEWLINE}"
-PROMPT+="%F{white}└─╼%f "
+PROMPT+="%F{grey}└─╼%f "
