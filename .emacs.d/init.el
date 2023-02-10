@@ -85,6 +85,7 @@
 
 ;; Remember recent files (call with M-x recentf-open-file)
 (recentf-mode 1)
+(global-set-key (kbd "<f5>") 'recentf-open-files)
 
 ;; remember and restore the last cursor location in opened files
 (save-place-mode 1)
@@ -204,7 +205,7 @@
 (setq org-archive-location (concat "~/Documents/04-ARCHIVES/"
                                  (format-time-string "%Y" (current-time))
                                  "/%s::"))
-
+(global-set-key (kbd "C-a") 'org-archive-subtree-default)
 
 ;; Agenda
 (setq org-agenda-files '("~/Documents/00-INBOX"
