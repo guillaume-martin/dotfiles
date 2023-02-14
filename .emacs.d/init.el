@@ -198,6 +198,7 @@
 ;; Refiling
 (setq org-refile-targets '((nil :maxlevel . 9)
                            (org-agenda-files :maxlevel . 9)))
+(global-set-key (kbd "<f7>") 'org-refile)
 
 ;; Archiving 
 ;; Archived items are moved in a file with the same name as their origin file
