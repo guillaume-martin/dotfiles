@@ -120,6 +120,8 @@
 ;; Disable auto indent
 (electric-indent-mode 0)
 
+;; Hide formatting characters
+(setq org-hide-emphasis-markers t)
 
 ;;==================================
 ;; Evil Mode
