@@ -117,6 +117,10 @@
 ;; Auto close brackets
 (electric-pair-mode 1)
 
+;; Disable auto indent
+(electric-indent-mode 0)
+
+
 ;;==================================
 ;; Evil Mode
 ;;=================================

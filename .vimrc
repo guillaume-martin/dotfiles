@@ -55,6 +55,7 @@
     Plugin 'Yggdroot/indentLine'                " shows identation guides
     Plugin 'tmhedberg/SimpylFold'               " manage folds of methods and classes
     Plugin 'raimondi/delimitmate'               " automatic closing of quotes, parenthesis, brackets, etc.
+    Plugin 'dense-analysis/ale'                 " Asynchronous lint engine
 
 " Git support
     Plugin 'airblade/vim-gitgutter'             " shows edit signs in gutter
@@ -65,6 +66,10 @@
     " Plugin 'vimwiki/vimwiki'
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" Other
+    Plugin 'terryma/vim-multiple-cursors'       " Sublime style multiple cursors
+    Plugin 'tpope/vim-surround'                 " Surrounds the selected region with the matching pair of characters
 
 call vundle#end()
 filetype plugin indent on
