@@ -43,6 +43,7 @@
 
 " Filetypes
     Plugin 'gabrielelana/vim-markdown'
+    Plugin 'dhruvasagar/vim-table-mode'         " Markdown table helper
     Plugin 'hashivim/vim-terraform'	            " Highlighting in .tf files + :Terraform cmd
 
 " Highlighting
@@ -166,6 +167,11 @@ filetype plugin indent on
     inoremap <C-S-K> <Esc>:m .-2<CR>==gi
     vnoremap <C-S-J> :m '>+1<CR>gv=gv
     vnoremap <C-S-K> :m '<-2<CR>gv=gv
+
+    " Insert date/time
+    inoremap idt <C-R>=strftime("%Y-%m-%d %H-%M-%S [\%z]")<CR>
+    inoremap idd <C-R>=strftime("%Y-%m-%d")<CR>
+    inoremap itt <C-R>=strftime("%H:%M:%S [\%z]")<CR>
 
 "===========
 "  Airline
