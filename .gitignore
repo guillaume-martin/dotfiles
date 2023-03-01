@@ -13,6 +13,7 @@
 .vim/bundle
 .vim/.netrwhist
 .vim/undodir
+.config/nvim/plugin/packer_compiled.lua
 
 # +-----------+ 
 # | ZSH Files |
