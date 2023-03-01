@@ -6,12 +6,13 @@
 *.swp
 *.bak
 
-# +--------------+ 
-# | Plugin files |
-# +--------------+ 
+# +-----------+ 
+# | Vim files |
+# +-----------+ 
 
 .vim/bundle
-
+.vim/.netrwhist
+.vim/undodir
 
 # +-----------+ 
 # | ZSH Files |

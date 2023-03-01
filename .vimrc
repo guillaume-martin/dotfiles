@@ -58,6 +58,13 @@
     Plugin 'raimondi/delimitmate'               " automatic closing of quotes, parenthesis, brackets, etc.
     Plugin 'dense-analysis/ale'                 " Asynchronous lint engine
 
+" Snippets
+    Plugin 'SirVer/ultisnips'
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/snippets"]
+
 " Git support
     Plugin 'airblade/vim-gitgutter'             " shows edit signs in gutter
     Plugin 'tpope/vim-fugitive'                 " performs basic gits commands
