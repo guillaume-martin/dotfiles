@@ -50,11 +50,22 @@ return require('packer').startup(function(use)
     		{'L3MON4D3/LuaSnip'},             -- Required
     		{'rafamadriz/friendly-snippets'}, -- Optional
   	}
-   } 
+   }
 
    -- Install theme
    -- source: https://github.com/ellisonleao/gruvbox.nvim
    use { "ellisonleao/gruvbox.nvim" }
-   use { "catppuccin/nvim", as = "catppuccin" }
-   use 'tanvirtin/monokai.nvim'
+
+   use {
+       'nvim-lualine/lualine.nvim',
+       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+   }
+
+   -- Automatic closing of quotes, parenthesis, brackets, etc...
+   use { "raimondi/delimitmate" }
+
+    -- Productivity
+    use {"vimwiki/vimwiki" }
+    use { "tools-life/taskwiki" }
+    use { "dhruvasagar/vim-table-mode" }
 end)

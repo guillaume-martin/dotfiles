@@ -1,4 +1,3 @@
-
 -- Lines numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -10,6 +9,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+vim.opt.showtabline = 2
+vim.opt.copyindent = true
 
 -- Word wrapping
 vim.opt.wrap = false
@@ -35,3 +36,11 @@ vim.opt.updatetime = 50
 
 -- 80 chars margin
 vim.opt.colorcolumn = "80"
+
+-- open splits on right or bottom
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- highligh cursor line 
+vim.opt.cursorline = true
+
