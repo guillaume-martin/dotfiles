@@ -10,7 +10,7 @@
 "=========
 " LEADER  
 "=========
-    let mapleader = ","
+    let mapleader = " "
 
 
 "===============
