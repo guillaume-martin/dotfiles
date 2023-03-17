@@ -81,6 +81,12 @@ alias tmuxk="tmux kill-session -t"
 
 alias vpn="protonvpn-cli"
 
+
+# +-------------+
+# | Timewarrior |
+# +-------------+
+alias tw="timew"
+
 # +-----+
 # | apt |
 # +-----+
