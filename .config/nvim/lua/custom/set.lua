@@ -15,6 +15,12 @@ vim.opt.copyindent = true
 -- Word wrapping
 vim.opt.wrap = false
 
+vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = {"*.md"},
+    group = group,
+    command = "setlocal wrap"
+})
+
 -- Backup files
 vim.opt.swapfile = false
 vim.opt.backup = false

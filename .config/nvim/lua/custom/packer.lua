@@ -68,4 +68,5 @@ return require('packer').startup(function(use)
     use {"vimwiki/vimwiki" }
     use { "tools-life/taskwiki" }
     use { "dhruvasagar/vim-table-mode" }
+
 end)

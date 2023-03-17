@@ -3,6 +3,10 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- Split window
+vim.keymap.set("n", "<leader>|", vim.cmd.vsp)
+vim.keymap.set("n", "<leader>-", vim.cmd.sp)
+
 -- Move between panes
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
