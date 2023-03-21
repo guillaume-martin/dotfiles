@@ -52,6 +52,10 @@ return require('packer').startup(function(use)
   	}
    }
 
+   -- Easily comment lines
+   -- source: https://github.com/tpope/vim-commentary
+   use { "tpope/vim-commentary" }
+
    -- Install theme
    -- source: https://github.com/ellisonleao/gruvbox.nvim
    use { "ellisonleao/gruvbox.nvim" }
