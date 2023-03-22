@@ -12,3 +12,7 @@ vim.g.vimwiki_markdown_link_ext = 1
 -- Don't conceal the cursor line 
 vim.g.indentLine_setConceal = 0
 
+-- Disable markdown tables formating
+-- I am using vim-table-mode instead
+vim.g.vimwiki_table_mapping = 0
+vim.g.vimwiki_table_auto_fmt = 0
