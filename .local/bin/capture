@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Quickly capture ideas in a daily file
+# Stolen from https://github.com/CalinLeafshade/dots
+#
+# i3 config:
+# for_window [ title="notetaker_window" ] floating enable
+# bindsym $mod+n exec termite -e $HOME/.local/bin/notetaker -t notetaker_window
+
+noteFilename="$HOME/Documents/00-INBOX/note-$(date +%Y-%m-%d).md"
+
+if [ ! -f $noteFilename ]; then
+    echo "# Notes for $(date +%Y-%m-%d)" > $noteFilename
+fi
+
+vim -c "norm Go" \
+  -c "norm Go## $(date +%H:%M)" \
+  -c "norm G2o" \
+  -c "norm zz" \
+  -c "startinsert" $noteFilename
+

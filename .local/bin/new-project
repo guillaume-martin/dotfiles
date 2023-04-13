@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PROJECTS_DIR="$HOME/Documents/02-PROJECTS/02-PROJECTS"
+TEMPLATES_DIR="$HOME/Documents/05-AREAS/Productivity/templates"
+
+# Get info from user
+read -p "Project title: " title
+read -p "Area of Focus: " area
+
+# Create the project folder
+project="${title,,}"        # Convert to lower case
+project=${project//[ ]/-}   # Replace spaces with hyphens
+folder_name="$area-$project-`date +\%Y-\%m-\%d`"
+mkdir "$PROJECTS_DIR/$folder_name"
+
+# Create project file from template
+cp "$TEMPLATES_DIR/template-project-file.md" "$PROJECTS_DIR/$folder_name/_project.md"
+sed -i "s/{{title}}/$title/g" $PROJECTS_DIR/$folder_name/_project.md
+sed -i "s/{{created_at}}/`date +\%Y-\%m-\%d`/g" $PROJECTS_DIR/$folder_name/_project.md
+sed -i "s/{{area}}/$area/g" $PROJECTS_DIR/$folder_name/_project.md
+sed -i "s/{{project}}/$project/g" $PROJECTS_DIR/$folder_name/_project.md
+
+cd $PROJECTS_DIR/$folder_name
+nvim _project.md 
+
+
+
+
+
