@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PROJECTS_DIR="$HOME/Documents/02-PROJECTS/02-PROJECTS"
-TEMPLATES_DIR="$HOME/Documents/05-AREAS/Productivity/templates"
+PROJECTS_DIR="$HOME/Documents/01-PROJECTS/02-PROJECTS"
+TEMPLATES_DIR="$HOME/Documents/02-AREAS/Productivity/templates"
 
 # Get info from user
 read -p "Project title: " title
