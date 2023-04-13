@@ -1,0 +1,28 @@
+#!/bin/bash
+
+ACTIONS_DIR="$HOME/Documents/01-PROJECTS/01-NEXT-ACTIONS"
+TEMPLATES_DIR="$HOME/Documents/02-AREAS/Productivity/templates"
+
+# Get info from user
+read -p "Task title: " title
+read -p "Description: " description 
+read -p "Estimated time: " estimated_time
+
+# Create the project folder
+task="${title,,}"     # Convert to lower case
+task=${task//[ ]/-}   # Replace spaces with hyphens
+task_name="$task-`date +\%Y-\%m-\%d`.md"
+
+# Create project file from template
+cp "$TEMPLATES_DIR/template-next-action.md" "$ACTIONS_DIR/$task_name"
+sed -i "s/{{title}}/$title/g" $ACTIONS_DIR/$task_name
+sed -i "s/{{created_at}}/`date +\%Y-\%m-\%d`/g" $ACTIONS_DIR/$task_name
+sed -i "s/{{description}}/$description/g" $ACTIONS_DIR/$task_name
+sed -i "s/{{estimated_time}}/$estimated_time/g" $ACTIONS_DIR/$task_name
+
+nvim $ACTIONS_DIR/$task_name 
+
+
+
+
+
