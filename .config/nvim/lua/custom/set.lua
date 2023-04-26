@@ -16,7 +16,7 @@ vim.opt.copyindent = true
 vim.opt.wrap = false
 
 vim.api.nvim_create_autocmd('BufEnter', {
-    pattern = {"*.md"},
+    pattern = {"*.md", "*.txt"},
     group = group,
     command = "setlocal wrap"
 })
