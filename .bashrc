@@ -114,3 +114,5 @@ done
 # Load aliases
 source $HOME/.config/aliases/aliases
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

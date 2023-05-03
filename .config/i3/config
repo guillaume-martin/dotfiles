@@ -80,20 +80,23 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  position top
-  status_command i3status
-  colors {
-    background #282828
-    statusline #EBDBB2
-    separator  #665C54
+   position top
+   status_command i3status
+   colors {
+     background #282828
+     statusline #EBDBB2
+     separator  #665C54
 
-    focused_workspace  #665C54 #665C54 #EBDBB2
-    active_workspace   #282828 #665C54 #EBDBB2
-    inactive_workspace #282828 #282828 #A89984
-    urgent_workspace   #CC241D #CC241D #EBDBB2
-    binding_mode       #CC241D #CC241D #EBDBB2
-  }
-}
+     focused_workspace  #665C54 #665C54 #EBDBB2
+     active_workspace   #282828 #665C54 #EBDBB2
+     inactive_workspace #282828 #282828 #A89984
+     urgent_workspace   #CC241D #CC241D #EBDBB2
+     binding_mode       #CC241D #CC241D #EBDBB2
+   }
+ }
+# bar {
+#     status_command i3blocks
+# }
 #==============================================================================#
 #                              *** workspaces ***                              #
 #==============================================================================#
