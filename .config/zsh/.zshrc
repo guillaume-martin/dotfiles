@@ -5,6 +5,8 @@ export PATH="$PATH:$HOME/.local/bin"
 
 source "$ZDOTDIR/zsh-functions"
 
+# Enable Vim mode
+bindkey -v
 
 # Setup options
 setopt autocd extendedglob nomatch menucomplete
