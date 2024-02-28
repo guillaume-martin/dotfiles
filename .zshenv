@@ -23,4 +23,3 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=/home/guillaume/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV=/home/guillaume/.local/bin/virtualenv
 
-. "$HOME/.cargo/env"

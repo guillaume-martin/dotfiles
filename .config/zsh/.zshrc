@@ -33,7 +33,9 @@ autoload -Uz colors && colors
 TERM=xterm-256color
 
 # Activate virtualenvwrapper
-source ~/.local/bin/virtualenvwrapper.sh
+# source ~/miniconda3/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/.env
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # Setup fzf
 if type rg &> /dev/null; then
@@ -47,3 +49,19 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/guillaume/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/guillaume/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/guillaume/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/guillaume/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
