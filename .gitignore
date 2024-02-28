@@ -23,3 +23,13 @@
 .config/zsh/plugins
 .config/zsh/.zprofile
 
+# +--------------+ 
+# | Joplin Files |
+# +--------------+
+.config/joplin-desktop/cache/
+.config/joplin-desktop/database.sqlite
+.config/joplin-desktop/log.txt
+.config/joplin-desktop/plugins/
+.config/joplin-desktop/resources/
+.config/joplin-desktop/settings.json
+.config/joplin-desktop/tmp/
