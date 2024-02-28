@@ -1,0 +1,16 @@
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run, filebrowser, ssh];
+}
+
+//@theme "gruvbox-dark"
+ 
+/* Insert theme modifications after this */
+
+element {
+  orientation: horizontal;
+  children: [ element-icon,  element-text ];
+  spacing: 5px;
+}
+
+@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
