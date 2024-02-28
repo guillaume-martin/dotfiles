@@ -15,6 +15,7 @@ vim.opt.copyindent = true
 -- Word wrapping
 vim.opt.wrap = false
 
+-- Allow wrapping in text and markdown files
 vim.api.nvim_create_autocmd('BufEnter', {
     pattern = {"*.md", "*.txt"},
     group = group,
