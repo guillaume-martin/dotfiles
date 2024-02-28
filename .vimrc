@@ -42,7 +42,9 @@
     Plugin 'edkolev/tmuxline.vim'
 
 " Filetypes
-    Plugin 'gabrielelana/vim-markdown'
+    "Plugin 'gabrielelana/vim-markdown'
+    Plugin 'godlygeek/tabular'
+    Plugin 'preservim/vim-markdown'
     Plugin 'dhruvasagar/vim-table-mode'         " Markdown table helper
     Plugin 'hashivim/vim-terraform'	            " Highlighting in .tf files + :Terraform cmd
 
@@ -59,11 +61,11 @@
     Plugin 'dense-analysis/ale'                 " Asynchronous lint engine
 
 " Snippets
-    Plugin 'SirVer/ultisnips'
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<c-b>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-    let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/snippets"]
+    "Plugin 'SirVer/ultisnips'
+    "let g:UltiSnipsExpandTrigger="<tab>"
+    "let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    "let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/snippets"]
 
 " Git support
     Plugin 'airblade/vim-gitgutter'             " shows edit signs in gutter
@@ -201,17 +203,35 @@ autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is
 nmap " :NERDTreeToggle<CR>
 
 "==========
+" Markdown
+"=========
+
+" Conceal markdown syntax
+set conceallevel=2
+let g:indentLine_concealcursor = "nc"
+
+" Highligh YAML Front Matter
+let g:vim_markdown_frontmatter = 1
+
+" Auto-write when following link
+let g:vim_markdown_autowrite = 1
+
+" Open new file in vertical split
+let g:vim_markdown_edit_url_in = "vsplit"
+
+
+"==========
 " VimWiki
 "=========
-    let g:vimwiki_list = [{'path': '~/Documents/', 'syntax': 'markdown', 'ext': '.md'}]
+    " let g:vimwiki_list = [{'path': '~/Documents/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Setup syntax
-    let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+    " let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 
 " Make vimwiki links as [text](text.md) instead of [text](text})
-    let g:vimwiki_markdown_link_ext = 1
+    " let g:vimwiki_markdown_link_ext = 1
 
 " Don't conceal on the cursor line
-    let g:indentLine_setConceal = 0                 " Need to disable conceal in indentline plugin
-    set concealcursor=nc
+    " let g:indentLine_setConceal = 0                 " Need to disable conceal in indentline plugin
+    " set concealcursor=nc
 
