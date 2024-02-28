@@ -1,7 +1,0 @@
-
-matches:
-  - trigger: ":sql"
-    replace: "```sql\n$|$\n```"
-
-  - trigger: ":python"
-    replace: "```python\n$|$\n```"

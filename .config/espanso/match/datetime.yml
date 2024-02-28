@@ -1,25 +1,37 @@
-matches:
 
+matches:
+  # Print the current date 
   - trigger: ":date"
-    replace: "{{mydate}}"
+    replace: "{{date_iso}}"
     vars:
-      - name: mydate
+      - name: date_iso
         type: date
         params:
           format: "%Y-%m-%d"
 
+  # Print the current time 
   - trigger: ":time"
     replace: "{{time}}"
     vars:
       - name: time
         type: date
         params:
-           format: "%H:%M:%S"
+          format: "%H:%M:%S"
 
+  # Print current date time 
   - trigger: ":now"
-    replace: "{{now}}"
+    replace: "{{datetime}}"
     vars:
-      - name: now
+      - name: datetime 
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M:%S"
+
+  # Print timestamp
+  - trigger: ":ts"
+    replace: "{{timestamp}}"
+    vars:
+      - name: timestamp
         type: date
         params:
           format: "%Y-%m-%d-%H-%M-%S"

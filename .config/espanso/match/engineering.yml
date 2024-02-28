@@ -1,0 +1,22 @@
+
+matches:
+  # Anaconda
+  - trigger: ":activ"
+    replace: "conda activate "
+
+  - trigger: ":deact"
+    replace: "conda deactivate"
+
+  # Keyfraym
+  - trigger: ":kal"
+    replace: "keyfraym aws login "
+
+  - trigger: ":kad"
+    replace: "keyfraym aws dotenv "
+
+  - trigger: "psql catfraym"
+    replace: "psql -h localhost -p 8808 -U postgres -d catfraym"
+
+  # Git
+  - trigger: ":prec"
+    replace: "pre-commit"
