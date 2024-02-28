@@ -39,7 +39,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock screen
-bindsym $mod+Shift+x exec i3lock -i /home/guillaume/.wallpapers/lock.jpg
+bindsym $mod+Shift+x exec i3lock -i /home/guillaume/.wallpapers/lock
+
 
 # Exit menu.
 bindsym $mod+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
@@ -67,11 +68,19 @@ bindsym $mod+q kill
 
 # Start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+# bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+bindsym $mod+d exec "rofi -show drun -show-icons"
 
 
 # i3-dmenu-desktop includes applications with a .desktop file. 
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
+# Switch between windows
+bindsym Mod1+Tab exec "rofi -show window"
+
+# Start rofi filebrowser
+bindsym Mod1+e exec "rofi -show filebrowser"
+
 
 #==============================================================================#
 #                            *** status bar ***                                #
@@ -79,21 +88,21 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-   position top
-   status_command i3status
-   colors {
-     background #282828
-     statusline #EBDBB2
-     separator  #665C54
-
-     focused_workspace  #665C54 #665C54 #EBDBB2
-     active_workspace   #282828 #665C54 #EBDBB2
-     inactive_workspace #282828 #282828 #A89984
-     urgent_workspace   #CC241D #CC241D #EBDBB2
-     binding_mode       #CC241D #CC241D #EBDBB2
-   }
- }
+# bar {
+#     position top
+#     status_command i3status
+#     colors {
+#       background #282828
+#       statusline #EBDBB2
+#       separator  #665C54
+# 
+#       focused_workspace  #665C54 #665C54 #EBDBB2
+#       active_workspace   #282828 #665C54 #EBDBB2
+#       inactive_workspace #282828 #282828 #A89984
+#       urgent_workspace   #CC241D #CC241D #EBDBB2
+#       binding_mode       #CC241D #CC241D #EBDBB2
+#     }
+# }
 # bar {
 #     status_command i3blocks
 # }
@@ -148,10 +157,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 #==============================================================================#
 
 # Change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -160,10 +169,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -193,14 +202,18 @@ bindsym $mod+a focus parent
 default_border pixel 2
 default_floating_border pixel 2
 
+# Set smart borders
+# Smart borders will draw window borders only if there is more than one window
+smart_borders on
+
 # Popups during fullscreen mode
 popup_during_fullscreen smart
 
 # Split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+| split h
 
 # Split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+- split v
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -259,10 +272,14 @@ floating_modifier $mod
 
 # for_window [class="Firefox"] floating enable
 # for_window [class="KeePassXC"]   floating enable
-for_window [class="java"]        floating enable       # For cryptomator
-for_window [class="Tor Browser"] floating enable
-for_window [class="Mousepad"]    floating enable
+for_window [class="java"]            floating enable       # For cryptomator
+for_window [class="Tor Browser"]     floating enable
+for_window [class="Mousepad"]        floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [Class="Cryptomator"]     floating enable
 
+for_window [ title="capture" ]       floating enabled
+for_window [ title="daily-note" ]    floating enabled
 
 #==============================================================================#
 #                     *** applications workspaces ***                          #
@@ -270,7 +287,8 @@ for_window [class="Mousepad"]    floating enable
 
 # Setup in which workspace an application should open by default.
 # assign [class="foo"] $ws#
-#
+# Find the application class using xprop | grep WM_CLASS
+
 # Development
 # assign [class="VSCodium"] $ws1
 # assign [class="DBeaver"] $ws3
@@ -280,22 +298,23 @@ for_window [class="Mousepad"]    floating enable
 # assign [class="Tor Browser"] $ws5
 
 # Productivity
-assign [class="Joplin"] $ws3
+assign [class="Joplin"] $ws7
+assign [class="ClickUp"] $ws9
 
 # Communication
 assign [class="Slack"] $ws10
-assign [class="thunderbird"] $ws9
+assign [class="thunderbird"] $ws8
 
 # Other
-assign [class="KeePassXC"] $ws2
-assign [class="Bitwarden"] $ws2
+# assign [class="KeePassXC"] $ws2
+# assign [class="Bitwarden"] $ws2
 
 #==============================================================================#
 #                        *** autostart applications ***                        #
 #==============================================================================#
 
 # Setup the wallpaper
-exec_always feh --bg-fill $HOME/.wallpapers/wallpaper.jpg
+exec_always feh --bg-fill $HOME/.config/wallpapers/wallpaper.jpg
 
 # Start Network Manager
 exec --no-startup-id nm-applet
@@ -342,19 +361,12 @@ focus_follows_mouse no
 # client.background       #F8F8F2
 
 # Gruvbox theme
-# green gruvbox
-# class                 border|backgr|text|indicator|child_border
-#client.focused          $green $green $darkgray $purple $darkgray
+# class                  border   |backgr|text|indicator|child_border
+#client.focused          #458588   $green $darkgray $purple $darkgray
 #client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 #client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 #client.urgent           $red $red $white $red $red
 
-# blue gruvbox
-# class                 border    bground   text      indicator  child_border
-client.focused          $blue     $blue     $darkgray $purple    $darkgray
-client.focused_inactive $darkgray $darkgray $yellow   $purple    $darkgray
-client.unfocused        $darkgray $darkgray $yellow   $purple    $darkgray
-client.urgent           $red      $red      $white    $red       $red
 
 #==============================================================================#
 #                             *** dual screen ***                              #
@@ -376,3 +388,16 @@ workspace 7 output $monitor1
 workspace 8 output $monitor2
 workspace 9 output $monitor1
 workspace 10 output $monitor2
+
+
+#==============================================================================#
+#                            *** Productivity ***                              #
+#==============================================================================#
+
+# Capture ideas in a note in Inbox
+bindsym $mod+c exec kitty -e /home/guillaume/.local/bin/capture -c capture_window
+
+# Add a new entry to the daily note
+bindsym $mod+n exec kitty -e /home/guillaume/.local/bin/daily-note -c capture_window
+
+
